@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+html, body, #app {
+    @apply h-full relative;
+}
+
+@layer components {
+    .lucide {
+        @apply size-4 inline-block;
+    }
+}
