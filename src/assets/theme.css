@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "PixelArmy";
+    src: url("/fonts/PixelArmy.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "VT323";
+    src: url("/fonts/VT323.ttf") format("truetype");
+}
+
 @theme {
     /* breakpoints */
     --breakpoint-xs: 400px;
@@ -14,4 +24,5 @@
 
     /* fonts */
     --font-mono: "VT323", monospace;
+    --font-title: "PixelArmy", "VT323", monospace;
 }

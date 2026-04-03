@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
 @import "tailwindcss";
 @import "./theme.css";
 
@@ -9,6 +7,10 @@ html {
 
 body, #app {
     @apply h-full relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-title;
 }
 
 .link {
@@ -23,18 +25,15 @@ body, #app {
     }
 }
 
-.lucide {
-    @apply size-4 inline-block;
-}
-
 .card {
-    @apply rounded-sm border-2 border-base-300 p-4;
+    @apply rounded-sm border-3 border-base-content/20 p-4 bg-base-200;
 }
 
 .card-title {
-    @apply text-2xl font-bold mb-4 text-secondary;
+    @apply text-xl mb-4 inline-block;
+    @apply bg-linear-20 from-primary to-secondary bg-clip-text text-transparent;
 
     &::before {
-        @apply me-2 content-[">"];
+        @apply me-2 content-["#"];
     }
 }

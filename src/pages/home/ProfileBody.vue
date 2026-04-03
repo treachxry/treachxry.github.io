@@ -1,11 +1,15 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
-    <div class="flex flex-col gap-8">
+    <main class="flex flex-col gap-8" role="main">
         <div class="card">
             <h2 class="card-title">Yap with me</h2>
             <div class="grid gap-6">
                 <div>
                     <div class="inline-flex gap-1 mb-3 font-semibold">
-                        <img class="h-lh py-0.5" src="/icons/discord.svg" alt="Discord logo"/>
+                        <img class="h-lh py-0.5" src="../../assets/icons/discord.svg" alt="Discord logo"/>
                         <span class="text-[#5865F2]">Discord</span>
                         <span>/</span>
                         <span>@treachxry</span>
@@ -18,7 +22,7 @@
 
                 <div>
                     <a class="inline-flex gap-1 mb-3 font-semibold" href="https://bsky.app/profile/treachxry.bsky.social" target="_blank">
-                        <img class="h-lh py-0.5" src="/icons/bluesky.svg" alt="Bluesky logo"/>
+                        <img class="h-lh py-0.5" src="../../assets/icons/bluesky.svg" alt="Bluesky logo"/>
                         <span class="text-[#1185FE]">Bluesky</span>
                         <span>/</span>
                         <span class="link">treachxry.bsky.social</span>
@@ -31,10 +35,10 @@
         </div>
 
         <div class="card">
-            <div class="card-title">Check out my writing</div>
+            <h2 class="card-title">Check out my writing</h2>
             <div>
                 <a class="inline-flex gap-1 mb-3 font-semibold" href="https://archiveofourown.org/users/Treachery" target="_blank">
-                    <img class="h-lh py-0.5" src="/icons/ao3.svg" alt="AO3 logo"/>
+                    <img class="h-lh py-0.5" src="../../assets/icons/ao3.svg" alt="AO3 logo"/>
                     <span class="text-[#900]">AO3</span>
                     <span>/</span>
                     <span class="link">Treachery</span>
@@ -56,10 +60,10 @@
         </div>
 
         <div class="card">
-            <div class="card-title">My coding projects</div>
+            <h2 class="card-title">My coding projects</h2>
             <div>
                 <a class="inline-flex gap-1 mb-3 font-semibold" href="https://github.com/treachxry" target="_blank">
-                    <img class="h-lh py-0.5" src="/icons/github.svg" alt="GitHub logo"/>
+                    <img class="h-lh py-0.5" src="../../assets/icons/github.svg" alt="GitHub logo"/>
                     <div class="text-[#999]">GitHub</div>
                     <span>/</span>
                     <span class="link">treachxry</span>
@@ -81,5 +85,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
