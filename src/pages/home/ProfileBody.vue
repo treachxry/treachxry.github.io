@@ -15,7 +15,7 @@
                         <span>@treachxry</span>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <p>I don't have a personal server, but I'm active in <a href="https://discord.gg/eroticaabyss" target="_blank" class="link link-accent">The Erotica Abyss</a>.</p>
+                        <p>I don't have a personal server, but I'm active in <a href="https://discord.gg/eroticaabyss" target="_blank" class="link text-secondary">The Erotica Abyss</a>.</p>
                         <p>Feel free to DM me about anything, as long as you're not rude or a scammer.</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="card">
-            <h2 class="card-title">Check out my writing</h2>
+            <h2 class="card-title">My writing</h2>
             <div>
                 <a class="inline-flex gap-1 mb-3 font-semibold" href="https://archiveofourown.org/users/Treachery" target="_blank">
                     <img class="h-lh py-0.5" src="../../assets/icons/ao3.svg" alt="AO3 logo"/>
@@ -53,6 +53,11 @@
                         You get the picture.
                     </p>
                     <p>
+                        <img
+                            src="/src/assets/images/nibble.gif"
+                            class="size-[2lh] float-left p-1 -ms-1 me-1"
+                            alt="GIF"
+                        />
                         I've been an incredible procrastinator lately and haven't written shit. But you'll see links to newer fics here eventually.
                     </p>
                 </div>
@@ -70,17 +75,14 @@
                 </a>
                 <div class="flex flex-col gap-2">
                     <p>
-                        <a href="/ao3-theme-generator" class="link">AO3 skin generator</a>
+                        <a href="/ao3-theme-generator" class="link text-secondary">AO3 skin generator</a>
                         <span> - </span>
                         <span>Web app to create site skins for AO3. Customizable colors, live skin preview, etc. In development.</span>
                     </p>
                     <p>
-                        <a href="/just-write" class="link">Just write</a>
+                        <a href="/just-write" class="link text-secondary">Just write</a>
                         <span> - </span>
                         <span>A very simple web interface to write without distractions. With typing sounds for your ADHD brain.</span>
-                    </p>
-                    <p>
-                        How do I know all this? Well, I'm a software engineer by profession.
                     </p>
                 </div>
             </div>

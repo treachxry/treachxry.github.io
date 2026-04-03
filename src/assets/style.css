@@ -2,7 +2,8 @@
 @import "./theme.css";
 
 html {
-    @apply bg-base-100 text-base-content font-mono tracking-widest;
+    @apply text-base font-mono tracking-widest;
+    @apply bg-base-100 text-base-content;
 }
 
 body, #app {
@@ -14,24 +15,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .link {
-    @apply underline text-link transition-opacity;
+    @apply underline transition-opacity;
 
     &:hover, &:focus {
         @apply opacity-75;
     }
 
     &:focus {
-        @apply outline-1 outline-link;
+        @apply outline-1 outline-current;
     }
 }
 
 .card {
-    @apply rounded-sm border-3 border-base-content/20 p-4 bg-base-200;
+    @apply rounded border-2 border-base-content/20 p-4 bg-base-200;
 }
 
 .card-title {
-    @apply text-xl mb-4 inline-block;
-    @apply bg-linear-20 from-primary to-secondary bg-clip-text text-transparent;
+    @apply text-xl mb-4 inline-block text-primary;
 
     &::before {
         @apply me-2 content-["#"];

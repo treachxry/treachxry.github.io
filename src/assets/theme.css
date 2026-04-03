@@ -1,11 +1,11 @@
 @font-face {
     font-family: "PixelArmy";
-    src: url("/fonts/PixelArmy.ttf") format("truetype");
+    src: url("/fonts/PixelArmy.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "VT323";
-    src: url("/fonts/VT323.ttf") format("truetype");
+    src: url("/fonts/VT323.woff2") format("woff2");
 }
 
 @theme {
@@ -17,10 +17,10 @@
     --color-base-100: oklch(0.15 0 0);
     --color-base-200: oklch(0.20 0 0);
     --color-base-300: oklch(0.25 0 0);
-    --color-base-content: oklch(0.9 0 0);
-    --color-primary: oklch(0.65 0.246 16);
-    --color-secondary: oklch(0.70 0.183 294);
-    --color-link: oklch(0.75 0.152 190);
+    --color-base-content: oklch(0.90 0 0);
+    --color-primary: oklch(0.65 0.24 16);
+    --color-secondary: oklch(0.70 0.18 294);
+    --color-accent: oklch(0.75 0.12 230);
 
     /* fonts */
     --font-mono: "VT323", monospace;

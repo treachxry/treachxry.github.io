@@ -16,7 +16,8 @@ export default defineConfig({
         tailwindcss(),
         imagetools({
             removeMetadata: true,
-            defaultDirectives: () => new URLSearchParams('format=webp&quality=90'),
+            include: /^[^?]+\.(heif|avif|jpeg|jpg|png|tiff|webp)(\?.*)?$/,
+            defaultDirectives: () => new URLSearchParams('format=webp&quality=90')
         })
     ],
 })
