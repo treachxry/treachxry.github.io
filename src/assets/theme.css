@@ -1,3 +1,17 @@
-@plugin "daisyui" {
-    themes: all;
+@theme {
+    /* breakpoints */
+    --breakpoint-xs: 400px;
+    --breakpoint-sm: 640px;
+
+    /* colors */
+    --color-base-100: oklch(0.15 0 0);
+    --color-base-200: oklch(0.20 0 0);
+    --color-base-300: oklch(0.25 0 0);
+    --color-base-content: oklch(0.9 0 0);
+    --color-primary: oklch(0.65 0.246 16);
+    --color-secondary: oklch(0.70 0.183 294);
+    --color-link: oklch(0.75 0.152 190);
+
+    /* fonts */
+    --font-mono: "VT323", monospace;
 }

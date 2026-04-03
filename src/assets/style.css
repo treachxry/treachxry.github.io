@@ -1,12 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 @import "tailwindcss";
 @import "./theme.css";
 
-html, body, #app {
+html {
+    @apply bg-base-100 text-base-content font-mono tracking-widest;
+}
+
+body, #app {
     @apply h-full relative;
 }
 
-@layer components {
-    .lucide {
-        @apply size-4 inline-block;
+.link {
+    @apply underline text-link transition-opacity;
+
+    &:hover, &:focus {
+        @apply opacity-75;
+    }
+
+    &:focus {
+        @apply outline-1 outline-link;
+    }
+}
+
+.lucide {
+    @apply size-4 inline-block;
+}
+
+.card {
+    @apply rounded-sm border-2 border-base-300 p-4;
+}
+
+.card-title {
+    @apply text-2xl font-bold mb-4 text-secondary;
+
+    &::before {
+        @apply me-2 content-[">"];
     }
 }

@@ -1,17 +1,11 @@
 <script setup lang="ts">
-    import Hero from "@/components/Hero.vue";
-    import Contacts from "@/components/Contacts.vue";
-
+    import AppBody from "@/components/AppBody.vue";
+    import AppHeader from "@/components/AppHeader.vue";
 </script>
 
 <template>
-    <main class="px-4 sm:px-8 py-8 max-w-240 mx-auto grid gap-8">
-        <hero/>
-        <div>
-            <div>he/they</div>
-            <div>he/they</div>
-            <div>he/they</div>
-        </div>
-        <contacts/>
+    <main class="px-4 sm:px-8 py-20 max-w-200 mx-auto grid gap-16 transition-all">
+        <app-header/>
+        <app-body/>
     </main>
 </template>
