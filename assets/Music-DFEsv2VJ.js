@@ -1,1 +1,0 @@
-import{S as e,t,u as n}from"./_plugin-vue_export-helper-fG7nhDVa.js";var r={},i={class:`card`};function a(t,r){return e(),n(`div`,i,` Placeholder: music `)}var o=t(r,[[`render`,a]]);export{o as default};
