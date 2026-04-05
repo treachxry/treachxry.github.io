@@ -1,0 +1,25 @@
+html {
+    @apply text-base font-mono tracking-widest;
+    @apply bg-base-100 text-base-content;
+}
+
+html, body, #app {
+    @apply h-full;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-title;
+}
+
+* {
+    scrollbar-color: var(--color-base-content) var(--color-base-300);
+    scrollbar-width: thin;
+}
+
+.fade-enter-active, .fade-leave-active {
+    @apply transition-opacity duration-250;
+}
+
+.fade-enter-from, .fade-leave-to {
+    @apply opacity-0;
+}

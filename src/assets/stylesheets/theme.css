@@ -10,8 +10,9 @@
 
 @theme {
     /* breakpoints */
-    --breakpoint-xs: 400px;
-    --breakpoint-sm: 640px;
+    --breakpoint-xs: 25rem; /* 400px */
+    --breakpoint-sm: 40rem; /* 640px */
+    --breakpoint-md: 55rem; /* 880px */
 
     /* colors */
     --color-base-100: oklch(0.15 0 0);
@@ -21,6 +22,9 @@
     --color-primary: oklch(0.65 0.24 16);
     --color-secondary: oklch(0.70 0.18 294);
     --color-accent: oklch(0.75 0.12 230);
+
+    /* style */
+    --radius: 0rem;
 
     /* fonts */
     --font-mono: "VT323", monospace;

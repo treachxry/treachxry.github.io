@@ -1,11 +1,15 @@
 <script setup lang="ts">
-    import ProfileBody from "@/pages/home/ProfileBody.vue";
-    import ProfileHeader from "@/pages/home/ProfileHeader.vue";
+    import HomeBody from "@/pages/home/HomeBody.vue";
+    import HomeHeader from "@/pages/home/HomeHeader.vue";
+    import HomeSidebar from "@/pages/home/HomeSidebar.vue";
 </script>
 
 <template>
-    <div class="px-4 sm:px-8 py-16 max-w-200 mx-auto transition-all">
-        <profile-header/>
-        <profile-body/>
+    <div>
+        <home-header/>
+        <div class="flex items-start gap-4">
+            <home-body/>
+            <home-sidebar/>
+        </div>
     </div>
 </template>

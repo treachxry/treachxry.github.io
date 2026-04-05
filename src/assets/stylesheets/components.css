@@ -1,0 +1,35 @@
+.link {
+    @apply underline transition-opacity;
+
+    &:hover, &:focus {
+        @apply opacity-75;
+    }
+
+    &:focus {
+        @apply outline-1 outline-current;
+    }
+}
+
+.card {
+    @apply border-2 border-base-content/20 p-4 bg-base-200 min-h-lh rounded;
+}
+
+.card-title {
+    @apply text-xl mb-4 inline-block text-primary;
+
+    &::before {
+        @apply me-2 content-["#"];
+    }
+}
+
+.card-link {
+    @apply inline-flex gap-1 mb-3 font-semibold;
+
+    > img {
+        @apply h-lh py-0.5 me-1;
+    }
+}
+
+.card-body {
+    @apply flex flex-col gap-2;
+}

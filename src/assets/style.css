@@ -1,39 +1,7 @@
 @import "tailwindcss";
-@import "./theme.css";
+@import "@/assets/stylesheets/theme.css";
+@import "@/assets/stylesheets/base.css";
 
-html {
-    @apply text-base font-mono tracking-widest;
-    @apply bg-base-100 text-base-content;
-}
-
-body, #app {
-    @apply h-full relative;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    @apply font-title;
-}
-
-.link {
-    @apply underline transition-opacity;
-
-    &:hover, &:focus {
-        @apply opacity-75;
-    }
-
-    &:focus {
-        @apply outline-1 outline-current;
-    }
-}
-
-.card {
-    @apply rounded border-2 border-base-content/20 p-4 bg-base-200;
-}
-
-.card-title {
-    @apply text-xl mb-4 inline-block text-primary;
-
-    &::before {
-        @apply me-2 content-["#"];
-    }
+@layer components {
+    @import "@/assets/stylesheets/components.css";
 }
