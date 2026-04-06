@@ -16,8 +16,18 @@ export default defineConfig({
         tailwindcss(),
         imagetools({
             removeMetadata: true,
-            include: /^[^?]+\.(heif|avif|jpeg|jpg|png|tiff|webp)(\?.*)?$/,
+            include: /^[^?]+\.(heif|jpeg|jpg|png|webp)(\?.*)?$/,
             defaultDirectives: () => new URLSearchParams('format=webp&quality=90')
         })
     ],
+    build: {
+        rolldownOptions: {
+            output: {
+                sanitizeFileName: name => name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9_.-]/g, '')
+            }
+        }
+    },
+    define: {
+        __BUILD_DATE__: Date.now()
+    }
 })

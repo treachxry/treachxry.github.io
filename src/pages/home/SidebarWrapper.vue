@@ -27,7 +27,7 @@
         <div v-if="open" class="fixed z-10 inset-0 bg-base-100 opacity-60" @click="open = false"/>
     </transition>
 
-    <button class="sidebar-button" :class="{'open': open}" @click="open = !open">
+    <button class="button sidebar-button" :class="{'open': open}" @click="open = !open">
         {{ buttonText }}
     </button>
 
@@ -47,7 +47,7 @@
     }
 
     .sidebar-button {
-        @apply fixed md:hidden top-0 right-0 border-2 border-base-content/30 w-20 h-9 mx-4 my-3 sm:me-8 md:me-4 z-20 bg-base-200 transition-all rounded;
+        @apply fixed md:hidden top-0 right-0 w-20 h-9 mx-4 my-3 sm:me-8 md:me-4 z-20;
 
         &.open {
             @apply w-52 me-4;

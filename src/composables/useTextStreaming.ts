@@ -2,8 +2,9 @@ import { ref, watch, onUnmounted, computed, Ref } from "vue";
 
 export interface TextStreamingOptions {
     delayTotal?: number
-    delayUnit?: number
+    delayBatch?: number
     batchBy?: 'character' | 'word'
+    onFinish?: () => void
 }
 
 export function useTextStreaming(text: Readonly<Ref<string>>, options: TextStreamingOptions = {}): Ref<string> {
@@ -20,7 +21,7 @@ export function useTextStreaming(text: Readonly<Ref<string>>, options: TextStrea
             return length > 0 ? options.delayTotal / length : 0;
         }
 
-        return options.delayUnit ?? 50;
+        return options.delayBatch ?? 100;
     });
 
     const byWord = computed<boolean>(() => {
@@ -43,6 +44,9 @@ export function useTextStreaming(text: Readonly<Ref<string>>, options: TextStrea
 
         if(characterIndex < text.value.length) {
             requestId = requestAnimationFrame(animate);
+        }
+        else {
+            options.onFinish?.();
         }
     }
 

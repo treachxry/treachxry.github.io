@@ -1,25 +1,23 @@
 <template>
-    <div class="card py-1.5">
-        <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">About me</router-link></li>
-            <li><router-link to="/music">Music</router-link></li>
-        </ul>
+    <div class="card grid py-1.5">
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About me</router-link>
+        <router-link to="/music">Art I like</router-link>
     </div>
 </template>
 
 <style scoped>
     @import "@/assets/style.css";
 
-    li {
+    a {
         @apply transition-colors py-0.5;
-    }
 
-    li:hover {
-        @apply text-secondary;
-    }
+        &:hover, &:focus-visible {
+            @apply text-secondary;
+        }
 
-    li::before {
-        content: "> ";
+        &::before {
+            content: "> ";
+        }
     }
 </style>

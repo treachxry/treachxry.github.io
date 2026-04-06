@@ -1,16 +1,21 @@
 <script setup lang="ts">
+    import { format } from "date-fns";
     import SidebarWrapper from "@/pages/home/SidebarWrapper.vue";
     import SidebarNavigation from "@/pages/home/SidebarNavigation.vue";
     import SidebarStatus from "@/pages/home/SidebarStatus.vue";
+    import SidebarMeme from "@/pages/home/SidebarMeme.vue";
+
+    const buildDate = format(__BUILD_DATE__, 'yyyy MMMM dd. HH:mm');
 </script>
 
 <template>
     <sidebar-wrapper>
         <sidebar-navigation/>
         <sidebar-status/>
-        <div class="card p-0 relative overflow-hidden">
-            <span class="absolute px-1 text-xs font-bold bottom-0 left-0 opacity-80">Featured shitpost</span>
-            <img src="@/assets/images/featured-meme.webp" alt="Featured shitpost"/>
+        <sidebar-meme/>
+        <div class="card py-2">
+            <div>Last updated:</div>
+            <div>{{buildDate}}</div>
         </div>
     </sidebar-wrapper>
 </template>

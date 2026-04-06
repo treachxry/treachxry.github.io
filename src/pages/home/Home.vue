@@ -1,6 +1,6 @@
 <script setup lang="ts">
-    import HomeBody from "@/pages/home/HomeBody.vue";
     import HomeHeader from "@/pages/home/HomeHeader.vue";
+    import HomeBody from "@/pages/home/HomeBody.vue";
     import HomeSidebar from "@/pages/home/HomeSidebar.vue";
 </script>
 

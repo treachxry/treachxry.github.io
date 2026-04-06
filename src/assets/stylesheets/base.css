@@ -11,6 +11,12 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-title;
 }
 
+a {
+    &:focus-visible {
+        @apply outline-current outline-1;
+    }
+}
+
 * {
     scrollbar-color: var(--color-base-content) var(--color-base-300);
     scrollbar-width: thin;
