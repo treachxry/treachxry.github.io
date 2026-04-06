@@ -1,0 +1,1 @@
+import{S as e,p as t,s as n,t as r,u as i}from"./plugin-vueexport-helper-DxXqQ9F0.js";var a={},o={class:`card`};function s(r,a){return e(),i(`div`,o,[...a[0]||=[t(` Placeholder: about `,-1),n(`p`,null,[t(` Profile picture by `),n(`a`)],-1)]])}var c=r(a,[[`render`,s]]);export{c as default};
