@@ -1,1 +1,0 @@
-import{S as e,s as t,t as n,u as r}from"./plugin-vueexport-helper-DxXqQ9F0.js";var i={},a={class:`card`};function o(n,i){return e(),r(`div`,a,[...i[0]||=[t(`div`,null,`Placeholder: music`,-1)]])}var s=n(i,[[`render`,o]]);export{s as default};
