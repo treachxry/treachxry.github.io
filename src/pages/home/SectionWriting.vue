@@ -18,7 +18,7 @@
             <p>Other things I like are bondage, non-con, femdom, breathplay, perverted contraptions, corruption, aphrodisiacs, etc. You get the picture.</p>
             <p class="mt-3">
                 <img src="@/assets/images/nibble.gif" class="size-[2lh] float-left p-1 -ms-1 me-1" alt=":3"/>
-                <span>I've been an incredible procrastinator lately and haven't written shit. But you'll see links to newer fics here eventually.</span>
+                <span>You'll see links to newer works or WIPs here when I get to them, eventually.</span>
             </p>
         </div>
     </div>

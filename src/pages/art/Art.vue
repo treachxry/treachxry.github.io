@@ -4,6 +4,6 @@
 
 <template>
     <div class="card">
-        <div>Placeholder: music</div>
+        <div>Placeholder: art</div>
     </div>
 </template>
