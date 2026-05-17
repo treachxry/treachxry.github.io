@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
 </script>
 
 <template>
@@ -12,7 +13,7 @@
                     <span>AO3</span>
                 </span>
                 <span>/</span>
-                <a class="link text-secondary" href="https://archiveofourown.org/users/Treachery" target="_blank">Treachery</a>
+                <analytics-link class="link text-secondary" href="https://archiveofourown.org/users/Treachery" target="_blank">Treachery</analytics-link>
             </p>
             <p>I write original fiction with a focus on messed up relationships and kinks. I have a thing for latex and bodysuits so expect me to be absolutely obsessed with those.</p>
             <p>Other things I like are bondage, non-con, femdom, breathplay, perverted contraptions, corruption, aphrodisiacs, etc. You get the picture.</p>

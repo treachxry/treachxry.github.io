@@ -1,6 +1,8 @@
+.cache
+.comments
+.env
 .idea
 .vscode
-.cache
+.wrangler
 dist
 node_modules
-.env

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+    import {initializeApiClient} from "@/composables/useApiClient";
+
+    initializeApiClient();
+</script>
+
 <template>
     <div class="px-4 sm:px-8 py-16 transition-all">
         <div class="max-w-225 mx-auto">

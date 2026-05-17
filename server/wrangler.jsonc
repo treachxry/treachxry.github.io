@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "index",
+  "compatibility_date": "2026-01-20",
+  "main": "src/main.ts",
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "index",
+      "database_name": "index",
+      "database_id": "012b8d92-4f08-41c9-89f1-75d8ef4b044e"
+    }
+  ]
+}

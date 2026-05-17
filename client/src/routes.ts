@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 
 const routes = [
     {
@@ -12,6 +12,10 @@ const routes = [
     {
         path: '/art',
         component: () => import("@/pages/art/Art.vue")
+    },
+    {
+        path: '/redirect',
+        component: () => import("@/pages/redirect/Redirect.vue")
     }
 ];
 

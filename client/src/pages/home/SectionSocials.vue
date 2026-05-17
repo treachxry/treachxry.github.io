@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+    import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
 </script>
 
 <template>
@@ -16,7 +16,7 @@
                         <span>/</span>
                         <span>@treachxry</span>
                     </p>
-                    <p>I don't have a personal server, but I'm active in <a href="https://discord.gg/eroticaabyss" target="_blank" class="link text-secondary">The Erotica Abyss</a>.</p>
+                    <p>I don't have a personal server, but I'm active in <analytics-link href="https://discord.gg/eroticaabyss" target="_blank" class="link text-secondary">The Erotica Abyss</analytics-link>.</p>
                     <p>Feel free to DM me about anything, as long as you're not rude or a scammer.</p>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                             <span>Bluesky</span>
                         </span>
                         <span>/</span>
-                        <a class="link text-secondary" href="https://bsky.app/profile/treachxry.bsky.social" target="_blank">treachxry.bsky.social</a>
+                        <analytics-link class="link text-secondary" href="https://bsky.app/profile/treachxry.bsky.social">treachxry.bsky.social</analytics-link>
                     </p>
                     <p>I haven't posted anything here yet. Just following a bunch of artists and other assorted freaks.</p>
                 </div>

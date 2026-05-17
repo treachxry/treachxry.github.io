@@ -1,0 +1,7 @@
+{
+  "name": "common",
+  "type": "module",
+  "exports": {
+    "./api": "./api/api.ts"
+  }
+}
