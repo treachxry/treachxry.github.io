@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
     import {onBeforeMount} from "vue";
     import {useRoute, useRouter} from "vue-router";
     import {useApiClient} from "@/composables/useApiClient";

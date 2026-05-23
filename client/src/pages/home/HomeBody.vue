@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
     import SectionSocials from "@/pages/home/SectionSocials.vue";
     import SectionCoding from "@/pages/home/SectionCoding.vue";
     import SectionWriting from "@/pages/home/SectionWriting.vue";

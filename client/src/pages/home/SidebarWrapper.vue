@@ -1,6 +1,6 @@
-<script setup lang="ts">
-    import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
-    import { useTextStreaming } from "@/composables/useTextStreaming";
+<script lang="ts" setup>
+    import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
+    import {useTextStreaming} from "@/composables/useTextStreaming";
 
     const hiddenClass = 'overflow-hidden';
     const mediaQuery = window.matchMedia("(max-width: 55rem)");
@@ -35,11 +35,11 @@
         <div v-if="open" class="fixed z-10 inset-0 bg-base-100 opacity-60" @click="closeSidebar"/>
     </transition>
 
-    <button class="button sidebar-button" :class="{'open': open}" @click="open = !open">
-        {{ buttonDisplayText }}
+    <button :class="{'open': open}" class="button sidebar-button" @click="open = !open">
+        {{buttonDisplayText}}
     </button>
 
-    <aside class="sidebar-wrapper" :class="{'open': open}">
+    <aside :class="{'open': open}" class="sidebar-wrapper">
         <div class="sidebar">
             <div class="sidebar-inner">
                 <slot/>

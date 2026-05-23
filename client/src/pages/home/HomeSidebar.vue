@@ -1,5 +1,5 @@
-<script setup lang="ts">
-    import { format } from "date-fns";
+<script lang="ts" setup>
+    import {format} from "date-fns";
     import SidebarWrapper from "@/pages/home/SidebarWrapper.vue";
     import SidebarNavigation from "@/pages/home/SidebarNavigation.vue";
     import SidebarStatus from "@/pages/home/SidebarStatus.vue";

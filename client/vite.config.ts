@@ -32,7 +32,7 @@ export default defineConfig(({mode}) => {
         },
         define: {
             __BUILD_DATE__: Date.now(),
-            __API_URL__: JSON.stringify(isDev? 'http://localhost:8787' : 'https://profile.treachery.workers.dev')
+            __API_URL__: JSON.stringify(isDev ? 'http://localhost:8787' : 'https://profile.treachery.workers.dev')
         }
     }
 })

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 
 </script>
 
@@ -8,7 +8,7 @@
             treachxry
         </h1>
         <div class="text-base sm:text-lg">
-            <p>Kinky degenerate. I write, code, and procrastinate... mostly the latter.</p>
+            <p>Kinky smut writer, latex/bodysuit enthusiast. Potentially a programmer.</p>
         </div>
     </div>
 </template>

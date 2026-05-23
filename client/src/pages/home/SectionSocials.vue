@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
     import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
 </script>
 
@@ -10,13 +10,13 @@
                 <div class="section-body">
                     <p class="flex gap-1.5 items-center">
                         <span class="section-link text-[#5865F2]">
-                            <img src="@/assets/icons/discord.svg" alt="Discord logo"/>
+                            <img alt="Discord logo" src="@/assets/icons/discord.svg"/>
                             <span>Discord</span>
                         </span>
                         <span>/</span>
                         <span>@treachxry</span>
                     </p>
-                    <p>I don't have a personal server, but I'm active in <analytics-link href="https://discord.gg/eroticaabyss" target="_blank" class="link text-secondary">The Erotica Abyss</analytics-link>.</p>
+                    <p>I don't have a personal server, but I'm active in <analytics-link class="link text-secondary" href="https://discord.gg/eroticaabyss" target="_blank">The Erotica Abyss</analytics-link>.</p>
                     <p>Feel free to DM me about anything, as long as you're not rude or a scammer.</p>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="section-body">
                     <p class="flex gap-1.5 items-center">
                         <span class="section-link text-[#1185FE]">
-                            <img src="@/assets/icons/bluesky.svg" alt="Bluesky logo"/>
+                            <img alt="Bluesky logo" src="@/assets/icons/bluesky.svg"/>
                             <span>Bluesky</span>
                         </span>
                         <span>/</span>

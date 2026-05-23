@@ -1,6 +1,5 @@
-<script setup lang="ts">
-
-import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
+<script lang="ts" setup>
+    import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
 </script>
 
 <template>
@@ -9,7 +8,7 @@ import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
         <div class="section-body">
             <p class="flex gap-1.5 items-center">
                 <span class="section-link text-[#900]">
-                    <img src="@/assets/icons/ao3.svg" alt="AO3 logo"/>
+                    <img alt="AO3 logo" src="@/assets/icons/ao3.svg"/>
                     <span>AO3</span>
                 </span>
                 <span>/</span>
@@ -18,7 +17,7 @@ import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
             <p>I write original fiction with a focus on messed up relationships and kinks. I have a thing for latex and bodysuits so expect me to be absolutely obsessed with those.</p>
             <p>Other things I like are bondage, non-con, femdom, breathplay, perverted contraptions, corruption, aphrodisiacs, etc. You get the picture.</p>
             <p class="mt-3">
-                <img src="@/assets/images/nibble.gif" class="size-[2lh] float-left p-1 -ms-1 me-1" alt=":3"/>
+                <img alt=":3" class="size-[2lh] float-left p-1 -ms-1 me-1" src="@/assets/images/nibble.gif"/>
                 <span>You'll see links to newer works or WIPs here when I get to them, eventually.</span>
             </p>
         </div>

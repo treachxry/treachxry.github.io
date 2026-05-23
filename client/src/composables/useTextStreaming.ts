@@ -1,4 +1,4 @@
-import { ref, watch, onUnmounted, computed, Ref } from "vue";
+import {computed, onUnmounted, ref, Ref, watch} from "vue";
 
 export interface TextStreamingOptions {
     delayTotal?: number

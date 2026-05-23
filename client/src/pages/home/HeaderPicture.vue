@@ -1,5 +1,5 @@
-<script setup lang="ts">
-    import { ref } from "vue";
+<script lang="ts" setup>
+    import {ref} from "vue";
     import Avatar from "@/assets/images/avatar.png";
     import AvatarLewd from "@/assets/images/avatar-lewd.png";
 

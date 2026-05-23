@@ -1,6 +1,6 @@
-<script setup lang="ts">
-    import { computed, ref } from "vue";
-    import { useTextStreaming } from "@/composables/useTextStreaming";
+<script lang="ts" setup>
+    import {computed, ref} from "vue";
+    import {useTextStreaming} from "@/composables/useTextStreaming";
     import HeaderPicture from "@/pages/home/HeaderPicture.vue";
     import HeaderContent from "@/pages/home/HeaderContent.vue";
 
@@ -27,7 +27,7 @@
             <header-content/>
         </div>
         <div class="min-h-[3lh] px-1 bg-linear-20 from-primary to-secondary bg-clip-text text-transparent transition-all">
-            {{ displayText }}
+            {{displayText}}
         </div>
     </header>
 </template>

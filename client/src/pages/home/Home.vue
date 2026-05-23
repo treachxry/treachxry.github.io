@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
     import HomeHeader from "@/pages/home/HomeHeader.vue";
     import HomeBody from "@/pages/home/HomeBody.vue";
     import HomeSidebar from "@/pages/home/HomeSidebar.vue";
