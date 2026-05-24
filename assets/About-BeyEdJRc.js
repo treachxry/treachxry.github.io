@@ -1,1 +1,0 @@
-import{d as e,s as t,u as n,v as r}from"./index-BLHpBdBy.js";import{t as i}from"./plugin-vueexport-helper-BDNMzG2s.js";var a={},o={class:`card`};function s(i,a){return r(),n(`div`,o,[...a[0]||=[e(` Placeholder: about `,-1),t(`p`,null,[e(` Profile picture by `),t(`a`)],-1)]])}var c=i(a,[[`render`,s]]);export{c as default};
