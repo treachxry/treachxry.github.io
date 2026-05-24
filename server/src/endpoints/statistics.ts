@@ -17,13 +17,13 @@ export class Statistics extends OpenAPIRoute {
     }
 
     async handle(c: AppContext) {
-        const query = await c.env.index.prepare(`
+        const query = await c.env.profile.prepare(`
             SELECT
-                url,
-                COUNT(*) as views
+                [url],
+                COUNT(*) as [views]
             FROM analytics
-            GROUP BY url
-            ORDER BY views DESC;
+            GROUP BY [url]
+            ORDER BY [views] DESC;
         `).all<ViewSummary>();
 
         return query.results;

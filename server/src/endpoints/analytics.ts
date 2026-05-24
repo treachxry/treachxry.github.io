@@ -25,17 +25,23 @@ export class Analytics extends OpenAPIRoute {
         const url = data.query.url;
         const timestamp = Date.now();
         const country = String((c.req as any)?.country) || null;
-        const userAgent = c.req.header()['user-agent'] || null;
 
-        await c.env.index.prepare(`
-            INSERT INTO analytics (url, ts, user_agent, country)
-            VALUES (?, ?, ?, ?)
-        `)
-            .bind(url, timestamp, userAgent, country)
-            .run();
+        try {
+            await c.env.profile.prepare(`
+                INSERT INTO analytics ([url], [timestamp], [country])
+                VALUES (?, ?, ?)
+            `)
+                .bind(url, timestamp, country)
+                .run();
 
-        return {
-            success: true
-        };
+            return {
+                success: true
+            };
+        }
+        catch(e) {
+            return {
+                success: false
+            };
+        }
     }
 }

@@ -2,10 +2,12 @@
     const {href} = defineProps<{
         href: string
     }>();
+
+    const url = `/?redirect=${true}&to=${href}`;
 </script>
 
 <template>
-    <a :href="`/redirect?to=${href}`" target="_blank">
+    <a :href="url" target="_blank">
         <slot/>
     </a>
 </template>

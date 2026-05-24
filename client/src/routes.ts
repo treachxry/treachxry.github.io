@@ -12,10 +12,6 @@ const routes = [
     {
         path: '/art',
         component: () => import("@/pages/art/Art.vue")
-    },
-    {
-        path: '/redirect',
-        component: () => import("@/pages/redirect/Redirect.vue")
     }
 ];
 

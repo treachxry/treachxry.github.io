@@ -1,7 +1,6 @@
 CREATE TABLE IF NOT EXISTS analytics (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    url TEXT NOT NULL,
-    ts INTEGER NOT NULL,
-    user_agent TEXT,
-    country TEXT
+    [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+    [url] TEXT NOT NULL,
+    [timestamp] INTEGER NOT NULL,
+    [country] TEXT
 );

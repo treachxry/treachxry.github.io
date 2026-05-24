@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "dev": "npm run dev -w server & npm run dev -w client",
-    "api": "npm run generate-schema -w server && npm run generate-api -w client"
+    "api": "npm run generate-schema -w server && npm run generate-api -w client",
+    "deploy-all": "npm run deploy -w server & npm run deploy -w client"
   }
 }

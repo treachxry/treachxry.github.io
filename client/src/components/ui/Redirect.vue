@@ -1,6 +1,6 @@
 <script lang="ts" setup>
     import {onBeforeMount} from "vue";
-    import {useRoute, useRouter} from "vue-router";
+    import {useRoute} from "vue-router";
     import {useApiClient} from "@/composables/useApiClient";
 
     const api = useApiClient();
@@ -11,18 +11,21 @@
 
     async function redirect() {
         if(typeof url !== 'string') {
-            const router = useRouter();
-            await router.push({path: '/'});
             return;
         }
 
-        await api.POST('/api/analytics', {
-            params: {
-                query: {
-                    url: url
+        try {
+            await api.POST('/api/analytics', {
+                params: {
+                    query: {
+                        url: url
+                    }
                 }
-            }
-        });
+            });
+        }
+        catch(e) {
+            console.error(e);
+        }
 
         window.location.replace(url);
     }
