@@ -7,9 +7,7 @@
     const route = useRoute();
     const url = route.query.to;
 
-    onBeforeMount(redirect);
-
-    async function redirect() {
+    onBeforeMount(async () => {
         if(typeof url !== 'string') {
             return;
         }
@@ -28,9 +26,9 @@
         }
 
         window.location.replace(url);
-    }
+    });
 </script>
 
 <template>
-    <div>Redirecting to {{url}}</div>
+    <div class="p-8">Redirecting to {{url}}</div>
 </template>

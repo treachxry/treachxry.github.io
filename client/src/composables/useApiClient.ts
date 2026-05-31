@@ -1,5 +1,5 @@
 import createClient from "openapi-fetch";
-import {paths} from "common/api";
+import {paths} from "common/api/api";
 import {useSingleton} from "@/composables/useSingleton";
 
 const {initializeComposable, useComposable} = useSingleton(useApiClient);

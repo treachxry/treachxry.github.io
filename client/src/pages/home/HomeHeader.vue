@@ -12,7 +12,7 @@
 
     const currentIndex = ref<number>(0);
     const currentText = computed(() => textChoices[currentIndex.value]);
-    const displayText = useTextStreaming(currentText, {delayBatch: 30});
+    const displayText = useTextStreaming(currentText, {stepDuration: 30});
 
     function chooseRandom() {
         const offset = Math.floor(1 + Math.random() * (textChoices.length - 1));

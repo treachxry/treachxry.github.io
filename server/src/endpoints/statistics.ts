@@ -17,6 +17,10 @@ export class Statistics extends OpenAPIRoute {
     }
 
     async handle(c: AppContext) {
+        // TODO: temp
+        return c.json({});
+
+        /*
         const query = await c.env.profile.prepare(`
             SELECT
                 [url],
@@ -27,5 +31,6 @@ export class Statistics extends OpenAPIRoute {
         `).all<ViewSummary>();
 
         return query.results;
+        */
     }
 }

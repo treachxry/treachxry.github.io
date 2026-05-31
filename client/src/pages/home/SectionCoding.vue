@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    import AnalyticsLink from "@/components/ui/AnalyticsLink.vue";
+    import RedirectLink from "@/components/ui/RedirectLink.vue";
 </script>
 
 <template>
@@ -12,17 +12,17 @@
                     <span>GitHub</span>
                 </span>
                 <span>/</span>
-                <analytics-link class="link text-secondary" href="https://github.com/treachxry" target="_blank">treachxry</analytics-link>
+                <redirect-link class="link text-secondary" href="https://github.com/treachxry" target="_blank">treachxry</redirect-link>
             </p>
             <p>
-                <analytics-link class="link text-secondary" href="/ao3-theme-generator">AO3 skin generator</analytics-link>
+                <redirect-link class="link text-secondary" href="/ao3-theme-generator">AO3 skin generator</redirect-link>
                 <span> - </span>
-                <span>Web app to create site skins for AO3. Customizable colors, live skin preview, etc. In development. [<analytics-link class="link text-secondary" href="https://github.com/treachxry/ao3-theme-generator">Source code</analytics-link>]</span>
+                <span>Web app to create site skins for AO3. Customizable colors, live skin preview, etc. In development. [<redirect-link class="link text-secondary" href="https://github.com/treachxry/ao3-theme-generator">Source code</redirect-link>]</span>
             </p>
             <p>
-                <analytics-link class="link text-secondary" href="/just-write">Just write</analytics-link>
+                <redirect-link class="link text-secondary" href="/just-write">Just write</redirect-link>
                 <span> - </span>
-                <span>A very simple web interface to write without distractions. With typing sounds for your ADHD brain. [<analytics-link class="link text-secondary" href="https://github.com/treachxry/just-write">Source code</analytics-link>]</span>
+                <span>A very simple web interface to write without distractions. With typing sounds for your ADHD brain. [<redirect-link class="link text-secondary" href="https://github.com/treachxry/just-write">Source code</redirect-link>]</span>
             </p>
         </div>
     </div>

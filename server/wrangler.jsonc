@@ -12,5 +12,8 @@
 			"database_name": "profile",
 			"database_id": "5f67155b-4299-4b09-a523-de2fc39d73b8"
 		}
-	]
+	],
+  "secrets": {
+    "required": ["TRACKBEAR_API_KEY"]
+  }
 }

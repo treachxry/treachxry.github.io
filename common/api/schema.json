@@ -41,6 +41,21 @@
         }
       }
     },
+    "/api/stories": {
+      "get": {
+        "operationId": "get_Stories",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/analytics": {
       "post": {
         "operationId": "post_Analytics",

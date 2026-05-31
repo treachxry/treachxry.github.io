@@ -1,8 +1,8 @@
 import {computed, onUnmounted, ref, Ref, watch} from "vue";
 
 export interface TextStreamingOptions {
-    delayTotal?: number
-    delayBatch?: number
+    totalDuration?: number
+    stepDuration?: number
     batchBy?: 'character' | 'word'
     onFinish?: () => void
 }
@@ -15,13 +15,13 @@ export function useTextStreaming(text: Readonly<Ref<string>>, options: TextStrea
     let characterIndex: number = 0;
 
     const delayUnit = computed<number>(() => {
-        if(options.delayTotal) {
+        if(options.totalDuration) {
             const length = text.value.length;
 
-            return length > 0 ? options.delayTotal / length : 0;
+            return length > 0 ? options.totalDuration / length : 0;
         }
 
-        return options.delayBatch ?? 100;
+        return options.stepDuration ?? 100;
     });
 
     const byWord = computed<boolean>(() => {

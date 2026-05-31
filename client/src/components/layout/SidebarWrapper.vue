@@ -6,7 +6,7 @@
     const mediaQuery = window.matchMedia("(max-width: 55rem)");
     const open = ref<boolean>(false);
     const buttonText = computed(() => open.value ? 'Close menu' : 'Menu');
-    const buttonDisplayText = useTextStreaming(buttonText, {delayTotal: 300});
+    const buttonDisplayText = useTextStreaming(buttonText, {totalDuration: 300});
 
     onMounted(() => {
         mediaQuery.addEventListener('change', closeSidebar);
