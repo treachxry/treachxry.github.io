@@ -6,7 +6,9 @@
     <router-view v-slot="{Component}">
         <transition mode="out-in" name="fade">
             <suspense timeout="0">
-                <component :is="Component"/>
+                <div>
+                    <component :is="Component"/>
+                </div>
                 <template #fallback>
                     <loading-indicator/>
                 </template>

@@ -15,7 +15,7 @@
         </div>
 
         <div class="card p-0">
-            <img alt="Featured shitpost" src="@/assets/images/meme.webp"/>
+            <img alt="Featured shitpost" src="@/assets/images/incredible.jpg"/>
         </div>
 
         <div class="card py-2">
