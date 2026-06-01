@@ -1,1 +1,0 @@
-import{_ as e,l as t,o as n}from"./index-CvqPsDCY.js";import{t as r}from"./plugin-vueexport-helper-BDNMzG2s.js";var i={},a={class:`card`};function o(r,i){return e(),t(`div`,a,[...i[0]||=[n(`div`,null,`Placeholder: art`,-1)]])}var s=r(i,[[`render`,o]]);export{s as default};

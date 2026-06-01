@@ -1,0 +1,1 @@
+import{f as e,g as t,r as n,s as r,u as i}from"./index-DVKaTJ5I.js";var a={},o={class:`card`};function s(n,a){return t(),i(`div`,o,[...a[0]||=[e(` Placeholder: about `,-1),r(`p`,null,[e(` Profile picture by `),r(`a`)],-1)]])}var c=n(a,[[`render`,s]]);export{c as default};
