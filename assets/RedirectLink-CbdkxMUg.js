@@ -1,0 +1,1 @@
+import{f as e,g as t,x as n,y as r}from"./index-BeiqZnlf.js";var i=[`href`],a=t({__name:`RedirectLink`,props:{href:{}},setup(t){return(a,o)=>(r(),e(`a`,{href:`/?redirect=true&to=${t.href}`,target:`_blank`},[n(a.$slots,`default`)],8,i))}});export{a as t};
