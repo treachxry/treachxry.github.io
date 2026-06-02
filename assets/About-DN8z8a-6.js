@@ -1,1 +1,0 @@
-import{f as e,l as t,m as n,r,y as i}from"./index-BaDJsM_S.js";var a={},o={class:`card`};function s(r,a){return i(),e(`div`,o,[...a[0]||=[n(` Placeholder: about `,-1),t(`p`,null,[n(` Profile picture by `),t(`a`)],-1)]])}var c=r(a,[[`render`,s]]);export{c as default};
