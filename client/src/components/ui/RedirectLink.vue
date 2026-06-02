@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <a :href="`/?redirect=${true}&to=${href}`" target="_blank">
+    <a :href="`/#/?redirect=${true}&to=${href}`" target="_blank">
         <slot/>
     </a>
 </template>
