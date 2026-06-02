@@ -19,7 +19,7 @@
         </div>
 
         <div class="card py-2">
-            <div>Last updated:</div>
+            <div>Site last updated:</div>
             <div>{{buildDate}}</div>
         </div>
     </sidebar-wrapper>

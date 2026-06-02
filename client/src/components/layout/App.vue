@@ -9,7 +9,7 @@
 
 <template>
     <div class="min-h-full flex flex-col">
-        <div class="px-4 sm:px-8 py-16 mx-auto max-w-240 grow transition-all flex items-start gap-4">
+        <div class="px-4 sm:px-8 py-16 mx-auto w-full max-w-240 grow transition-all flex items-start gap-4">
             <app-body/>
             <app-sidebar/>
         </div>

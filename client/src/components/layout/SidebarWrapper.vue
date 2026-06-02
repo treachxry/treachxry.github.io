@@ -1,9 +1,12 @@
 <script lang="ts" setup>
     import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
+    import {useRoute} from "vue-router";
     import {useTextStreaming} from "@/composables/useTextStreaming";
 
     const hiddenClass = 'overflow-hidden';
     const mediaQuery = window.matchMedia("(max-width: 55rem)");
+    const route = useRoute();
+
     const open = ref<boolean>(false);
     const buttonText = computed(() => open.value ? 'Close menu' : 'Menu');
     const buttonDisplayText = useTextStreaming(buttonText, {totalDuration: 300});
@@ -23,6 +26,10 @@
         else {
             document.body.classList.remove(hiddenClass);
         }
+    });
+
+    watch(() => route.path, () => {
+        closeSidebar();
     });
 
     function closeSidebar() {

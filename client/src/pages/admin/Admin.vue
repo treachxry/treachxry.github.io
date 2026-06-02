@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="grow flex items-center justify-center">
-        <div class="w-80 flex flex-col gap-8 card">
+    <div class="card">
+        <div class="flex flex-col gap-8 max-w-96 mx-auto">
             <h2 class="text-lg text-center">Admin panel</h2>
 
             <label class="flex flex-col gap-1">
@@ -25,7 +25,7 @@
                 />
             </label>
 
-            <button class="card px-0 py-1 bg-secondary text-base-100">
+            <button class="card px-0 py-1 bg-secondary text-base-100 mb-2">
                 <span class="opacity-50">Not implemented</span>
             </button>
         </div>

@@ -30,5 +30,11 @@
 </script>
 
 <template>
-    <div class="p-8">Redirecting to {{url}}</div>
+    <div class="absolute inset-0 p-8 bg-base-100 z-50 flex flex-col items-center">
+        <div>
+            <div class="mb-8">Redirecting...</div>
+            <div>If this page is stuck, you can click the link manually:</div>
+            <a :href="String(url)" class="underline">{{url}}</a>
+        </div>
+    </div>
 </template>

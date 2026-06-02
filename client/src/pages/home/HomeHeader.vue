@@ -14,7 +14,7 @@
             <header-picture/>
             <header-content/>
         </div>
-        <div class="min-h-[3lh] px-1 bg-linear-20 from-primary to-secondary bg-clip-text text-transparent transition-all">
+        <div class="min-h-[2lh] px-1 pb-2 bg-linear-20 from-primary to-secondary bg-clip-text text-transparent transition-all">
             {{displayText}}
         </div>
     </header>
