@@ -1,6 +1,6 @@
 html {
     @apply text-base font-mono tracking-widest;
-    @apply bg-base-100 text-base-content;
+    @apply bg-base-200 text-base-content;
 }
 
 html, body, #app {

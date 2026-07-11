@@ -3,7 +3,8 @@
 <template>
     <div class="card grid py-1.5">
         <router-link class="link" to="/">Home</router-link>
-        <router-link class="link" to="/writing">My writing</router-link>
+        <router-link class="link" to="/writing">Writing</router-link>
+        <router-link class="link" to="/art">Art</router-link>
     </div>
 </template>
 
@@ -15,10 +16,6 @@
 
         &::before {
             content: "> ";
-        }
-
-        &.disabled {
-            @apply pointer-events-none opacity-50;
         }
 
         &.router-link-active {

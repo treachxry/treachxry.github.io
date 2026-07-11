@@ -7,7 +7,7 @@
 <template>
     <main class="flex flex-col gap-4" role="main">
         <div class="card">
-            <h2 class="section-title">About me or whatever</h2>
+            <h2 class="section-title">About</h2>
 
             <p>I write in my free time and publish my stories exclusively on AO3.</p>
             <p class="mt-3">

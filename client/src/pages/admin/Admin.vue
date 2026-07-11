@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="card">
+    <main class="card" role="main">
         <div class="flex flex-col gap-8 max-w-96 mx-auto">
             <h2 class="text-lg text-center">Admin panel</h2>
 
@@ -29,5 +29,5 @@
                 <span class="opacity-50">Not implemented</span>
             </button>
         </div>
-    </div>
+    </main>
 </template>

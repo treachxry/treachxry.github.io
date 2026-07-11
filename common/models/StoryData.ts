@@ -1,4 +1,5 @@
 import {StoryTotals} from "./StoryTotals";
+import {StoryPhase} from "./StoryPhase";
 
 export interface StoryData {
     id: number
@@ -9,7 +10,7 @@ export interface StoryData {
     ownerId: number
     title: string
     description: string
-    phase: string
+    phase: StoryPhase
     startingBalance: StoryTotals
     cover: string | null
     starred: boolean

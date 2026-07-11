@@ -1,32 +1,19 @@
 import {OpenAPIRoute} from "chanfana";
 import {AppContext} from "@/models/AppContext";
+import {StoryData} from "common/models/StoryData";
+import {TrackBearResponse} from "common/models/TrackBearResponse";
+import {useTrackBearApi} from "@/composables/useTrackBearApi";
 
 export class Stories extends OpenAPIRoute {
     async handle(c: AppContext) {
-        const token: string = c.env.TRACKBEAR_API_KEY;
+        const {sendRequest} = useTrackBearApi(c.env.TRACKBEAR_API_KEY);
 
-        if(typeof token !== 'string' || token.length === 0) {
-            c.status(500);
-            return c.json(null);
+        const response: TrackBearResponse<StoryData[]> = await sendRequest<StoryData[]>('/project');
+
+        if(response.data) {
+            response.data = response.data.filter(story => story.displayOnProfile);
         }
 
-        try {
-            const response = await fetch('https://trackbear.app/api/v1/project', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-
-            const results: any = await response.json();
-            const data: any[] = results.data;
-
-            const stories = data.filter(x => x.displayOnProfile === true && x.phase !== 'abandoned');
-
-            return c.json(stories);
-        }
-        catch(e) {
-            c.status(400);
-            return c.json(null);
-        }
+        return c.json(response);
     }
 }

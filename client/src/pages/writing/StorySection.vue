@@ -1,35 +1,83 @@
 <script setup lang="ts">
     import {computed} from "vue";
     import {useApiClient} from "@/composables/useApiClient";
-    import {StoryData} from "common/models/StoryData";
     import {StoryDataExtended} from "@/models/StoryDataExtended";
+    import {StoryData} from "common/models/StoryData";
+    import {TrackBearResponse} from "common/models/TrackBearResponse";
     import StoryCard from "@/pages/writing/StoryCard.vue";
+    import {StoryPhase} from "common/models/StoryPhase";
+    import PageView from "@/components/ui/PageView.vue";
+
+    const phases = [
+        StoryPhase.Finished,
+        StoryPhase.Revising,
+        StoryPhase.Drafting,
+        StoryPhase.Outlining,
+        StoryPhase.OnHold,
+        StoryPhase.Planning,
+        StoryPhase.Abandoned
+    ];
 
     const api = useApiClient();
+    const {data} = await api.GET('/api/stories');
 
-    const {data, error} = await api.GET('/api/stories');
+    const stories = computed(getStories);
+    const pageSize = 5;
 
-    const stories = computed<{ finished: StoryDataExtended[], 'in progress': StoryDataExtended[] }>(() => {
-        const list: StoryDataExtended[] = (data as StoryData[]).map(x => ({
-            ...x,
-            progress: getWordCount(x.totals),
-            ...parseDescription(x.description),
-        }));
+    function getStories(): { finished: StoryDataExtended[], in_progress: StoryDataExtended[] } {
+        const response = data as TrackBearResponse<StoryData[]>;
 
-        const finished = list.filter(x => x.phase === 'finished');
-        const inProgress = list.filter(x => x.phase !== 'finished');
+        if(response.data === undefined) {
+            throw new Error(response.error?.message);
+        }
+
+        const stories: StoryDataExtended[] = response.data.map(getExtendedData);
+        const finished: StoryDataExtended[] = [];
+        const inProgress: StoryDataExtended[] = [];
+
+        for(const story of stories) {
+            if(story.phase === StoryPhase.Finished || story.phase === StoryPhase.Abandoned) {
+                finished.push(story);
+            }
+            else {
+                inProgress.push(story);
+            }
+        }
 
         return {
-            'finished': finished.sort(sortStories),
-            'in progress': inProgress.sort(sortStories),
+            finished: finished.sort(sortStories),
+            in_progress: inProgress.sort(sortStories)
         };
-    });
+    }
 
-    function sortStories(a: StoryDataExtended, b: StoryDataExtended) {
-        const updated1: string = a.lastUpdated ?? '0001-01-01';
-        const updated2: string = b.lastUpdated ?? '0001-01-01'
+    function getExtendedData(storyData: StoryData): StoryDataExtended {
+        return {
+            ...storyData,
+            progress: getWordCount(storyData.totals),
+            ...parseDescription(storyData.description),
+        };
+    }
 
-        return updated2.localeCompare(updated1);
+    function sortStories(a: StoryDataExtended, b: StoryDataExtended): number {
+        const phaseA = phases.indexOf(a.phase);
+        const phaseB = phases.indexOf(b.phase);
+
+        const phase = phaseA - phaseB;
+
+        if(phase !== 0) {
+            return phase;
+        }
+
+        const link = (b.link ? 1 : 0) - (a.link ? 1 : 0);
+
+        if(link !== 0) {
+            return link;
+        }
+
+        const updatedA: string = a.lastUpdated ?? '0001-01-01';
+        const updatedB: string = b.lastUpdated ?? '0001-01-01';
+
+        return updatedB.localeCompare(updatedA);
     }
 
     function getWordCount(totals: object): string {
@@ -59,15 +107,25 @@
 
 <template>
     <div class="flex flex-col gap-4">
-        <div v-for="(data, key) in stories" class="card">
+        <div v-for="(value, key) in stories" class="card">
             <h2 class="section-title">
-                {{key}} stories
+                {{key.replaceAll('_', ' ')}} stories
             </h2>
 
-            <div v-for="(story, i) in data">
-                <hr v-if="i" class="my-4 opacity-20"/>
-                <story-card :story="story"/>
-            </div>
+            <page-view
+                :data="value"
+                :page-size="pageSize"
+                :disabled="value.length <= pageSize"
+            >
+                <template #default="{data}">
+                    <div>
+                        <div v-for="(story, i) in data">
+                            <hr v-if="i || value.length > pageSize" class="my-4 opacity-20"/>
+                            <story-card :story="story"/>
+                        </div>
+                    </div>
+                </template>
+            </page-view>
         </div>
     </div>
 </template>

@@ -3,7 +3,7 @@
     import SidebarWrapper from "@/components/layout/SidebarWrapper.vue";
     import SidebarNavigation from "@/components/layout/SidebarNavigation.vue";
 
-    const buildDate = format(__BUILD_DATE__, 'yyyy MMMM dd. HH:mm');
+    const buildDate = format(__BUILD_DATE__, 'yyyy MMMM dd.');
 </script>
 
 <template>
