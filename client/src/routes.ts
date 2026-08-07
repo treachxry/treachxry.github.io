@@ -14,8 +14,8 @@ const routes = [
         component: () => import("@/pages/art/Art.vue")
     },
     {
-        path: '/lore',
-        component: () => import("@/pages/blurbs/Blurbs.vue")
+        path: '/coding',
+        component: () => import("@/pages/coding/Coding.vue")
     }
 ];
 

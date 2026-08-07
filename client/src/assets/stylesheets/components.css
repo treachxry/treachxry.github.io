@@ -11,14 +11,14 @@
 }
 
 .card {
-    @apply border-2 border-base-content/20 p-4 bg-base-300 min-h-lh rounded;
+    @apply p-4 bg-base-300 min-h-lh rounded-xl;
 }
 
 .button {
-    @apply border-2 border-base-content/20 px-4 py-1 bg-base-200 rounded transition-all outline-0;
+    @apply border border-base-content/20 px-4 py-1 bg-base-300 rounded-md transition-all outline-0;
 
     &:hover, &:focus-visible {
-        @apply border-secondary;
+        @apply border-secondary bg-base-200;
     }
 }
 

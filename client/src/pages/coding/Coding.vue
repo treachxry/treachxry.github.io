@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
     import RedirectLink from "@/components/ui/RedirectLink.vue";
 </script>
 

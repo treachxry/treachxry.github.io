@@ -15,10 +15,10 @@
     --breakpoint-md: 55rem; /* 880px */
 
     /* colors */
-    --hue: 325;
+    --hue: 310;
     --color-base-100: oklch(0.15 0 var(--hue));
-    --color-base-200: oklch(0.19 0.015 var(--hue));
-    --color-base-300: oklch(0.24 0.025 var(--hue));
+    --color-base-200: oklch(0.17 0.01 var(--hue));
+    --color-base-300: oklch(0.22 0.02 var(--hue));
     --color-base-content: oklch(0.90 0.04 var(--hue));
     --color-primary: oklch(0.65 0.24 16);
     --color-secondary: oklch(0.70 0.18 294);

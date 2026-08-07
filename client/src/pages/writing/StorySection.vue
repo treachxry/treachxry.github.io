@@ -24,30 +24,14 @@
     const stories = computed(getStories);
     const pageSize = 5;
 
-    function getStories(): { finished: StoryDataExtended[], in_progress: StoryDataExtended[] } {
+    function getStories(): StoryDataExtended[] {
         const response = data as TrackBearResponse<StoryData[]>;
 
         if(response.data === undefined) {
-            throw new Error(response.error?.message);
+            throw new Error(response.error?.message ?? '');
         }
 
-        const stories: StoryDataExtended[] = response.data.map(getExtendedData);
-        const finished: StoryDataExtended[] = [];
-        const inProgress: StoryDataExtended[] = [];
-
-        for(const story of stories) {
-            if(story.phase === StoryPhase.Finished || story.phase === StoryPhase.Abandoned) {
-                finished.push(story);
-            }
-            else {
-                inProgress.push(story);
-            }
-        }
-
-        return {
-            finished: finished.sort(sortStories),
-            in_progress: inProgress.sort(sortStories)
-        };
+        return response.data.map(getExtendedData).sort(sortStories);
     }
 
     function getExtendedData(storyData: StoryData): StoryDataExtended {
@@ -106,26 +90,18 @@
 </script>
 
 <template>
-    <div class="flex flex-col gap-4">
-        <div v-for="(value, key) in stories" class="card">
-            <h2 class="section-title">
-                {{key.replaceAll('_', ' ')}} stories
-            </h2>
-
-            <page-view
-                :data="value"
-                :page-size="pageSize"
-                :disabled="value.length <= pageSize"
-            >
-                <template #default="{data}">
-                    <div>
-                        <div v-for="(story, i) in data">
-                            <hr v-if="i || value.length > pageSize" class="my-4 opacity-20"/>
-                            <story-card :story="story"/>
-                        </div>
-                    </div>
-                </template>
-            </page-view>
-        </div>
-    </div>
+    <page-view
+        :data="stories"
+        :page-size="pageSize"
+        :disabled="stories.length <= pageSize"
+    >
+        <template #default="{data}">
+            <div>
+                <div v-for="(story, i) in data">
+                    <hr v-if="i || stories.length > pageSize" class="my-4 opacity-20"/>
+                    <story-card :story="story"/>
+                </div>
+            </div>
+        </template>
+    </page-view>
 </template>

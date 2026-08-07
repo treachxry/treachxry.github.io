@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-    import {ref} from "vue";
-    import {useTextStreaming} from "@/composables/useTextStreaming";
-    import HeaderPicture from "@/pages/home/HeaderPicture.vue";
-    import HeaderContent from "@/pages/home/HeaderContent.vue";
-
-    const headerText = ref("The goal is to be as kindhearted and perverted as possible.");
-    const displayText = useTextStreaming(headerText, {stepDuration: 30});
+    import Avatar from "@/assets/images/avatar.png";
 </script>
 
 <template>
-    <header class="mb-4" role="banner">
-        <div class="h-40 flex items-center overflow-hidden rounded bg-linear-20 from-primary to-secondary text-base-100 relative">
-            <header-picture/>
-            <header-content/>
+    <div class="h-40 flex items-center overflow-hidden bg-linear-90 from-primary to-secondary text-base-100">
+        <img
+            :src="Avatar"
+            alt="Profile picture"
+            class="h-full -ms-4 xs:ms-0 transition-all"
+        />
+        <div class="p-2 sm:px-4 transition-all">
+            <h1 class="text-2xl sm:text-3xl mb-1 sm:mb-2 transition-all">
+                treachxry
+            </h1>
+            <div class="text-base sm:text-lg">
+                <p>Kinky smut writer, latex/bodysuit enthusiast. Potentially a programmer.</p>
+            </div>
         </div>
-        <div class="min-h-[2lh] px-1 pb-2 bg-linear-20 from-primary to-secondary bg-clip-text text-transparent transition-all">
-            {{displayText}}
-        </div>
-    </header>
+    </div>
 </template>

@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <main class="flex flex-col gap-4" role="main">
+    <div class="flex flex-col gap-4">
         <div class="card">
             <h2 class="section-title">My art</h2>
 
@@ -46,7 +46,7 @@
         </div>
 
         <div class="card link-list flex flex-col">
-            <h2 class="section-title">Other artists you should check out</h2>
+            <h2 class="section-title">Artists you should check out</h2>
 
             <div class="grid md:grid-cols-2 justify-start">
                 <div v-for="link in links">
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style scoped>
