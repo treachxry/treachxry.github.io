@@ -17,11 +17,9 @@
                         <span>@treachxry</span>
                     </p>
                     <p>
-                        I have no personal server, but I'm active in
+                        No personal server, but I'm active in
                         <redirect-link class="link text-secondary" href="https://discord.gg/eroticaabyss" target="_blank">The Erotica Abyss</redirect-link>.
-                    </p>
-                    <p>
-                        Feel free to message me, just note that I despise small-talk.
+                        Feel free to message me here, just have a topic in mind other than small-talk.
                     </p>
                 </div>
             </div>
@@ -37,8 +35,7 @@
                         <redirect-link class="link text-secondary" href="https://bsky.app/profile/treachxry.bsky.social">treachxry.bsky.social</redirect-link>
                     </p>
                     <p>
-                        No posts, only lurking.
-                        Just following a bunch of artists and other assorted freaks I enjoy.
+                        Only lurking and following a bunch of artists and other assorted freaks I enjoy.
                     </p>
                 </div>
             </div>

@@ -6,16 +6,15 @@
     <div class="card">
         <h2 class="section-title">My writing</h2>
         <div class="section-body">
-            <p class="flex gap-1.5 items-center">
-                <span class="section-link text-[#900]">
-                    <img alt="AO3 logo" src="@/assets/icons/ao3.svg"/>
-                    <span>AO3</span>
-                </span>
-                <span>/</span>
-                <redirect-link class="link text-secondary" href="https://archiveofourown.org/users/Treachery" target="_blank">Treachery</redirect-link>
-            </p>
-            <p>I write original fiction with a focus on messed up relationships and kinks. I have a thing for latex and bodysuits so expect me to be absolutely obsessed with those.</p>
-            <p>Other things I enjoy are bondage, non-con, femdom, breathplay, perverted contraptions, corruption, aphrodisiacs, etc. You get the picture.</p>
+            <p>I write smut as a hobby and publish my stories exclusively on AO3. No commissions or requests, but suggestions are welcome if you have something interesting in mind.</p>
+            <p>My stories are mainly original fiction with a focus on messed up relationships and kinks. These include latex, non-con, bondage, femdom, breathplay, perverted contraptions, corruption, aphrodisiacs, etc. You get the picture.</p>
+
+            <router-link to="/writing" class="link text-secondary">
+                > Read more about it here
+            </router-link>
+            <redirect-link class="link text-secondary" href="https://archiveofourown.org/users/Treachery" target="_blank">
+                > Check out my AO3 profile
+            </redirect-link>
         </div>
     </div>
 </template>

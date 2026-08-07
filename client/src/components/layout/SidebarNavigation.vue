@@ -5,6 +5,7 @@
         <router-link class="link" to="/">Home</router-link>
         <router-link class="link" to="/writing">Writing</router-link>
         <router-link class="link" to="/art">Art</router-link>
+        <router-link class="link" to="/lore">Lore</router-link>
     </div>
 </template>
 

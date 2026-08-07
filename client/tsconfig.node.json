@@ -1,19 +1,14 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "esnext",
+    "noEmit": true,
+    "erasableSyntaxOnly": true,
     "types": [
       "@types/node"
-    ],
-    "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    "strict": true,
-    "erasableSyntaxOnly": true,
-    "allowImportingTsExtensions": true,
-    "noUncheckedSideEffectImports": true
+    ]
   },
   "include": [
     "vite.config.ts"

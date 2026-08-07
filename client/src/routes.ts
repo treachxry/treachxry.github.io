@@ -14,8 +14,8 @@ const routes = [
         component: () => import("@/pages/art/Art.vue")
     },
     {
-        path: '/admin',
-        component: () => import("@/pages/admin/Admin.vue")
+        path: '/lore',
+        component: () => import("@/pages/blurbs/Blurbs.vue")
     }
 ];
 

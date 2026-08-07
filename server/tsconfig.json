@@ -7,9 +7,6 @@
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "noEmit": true,
-    "strict": true,
-    "allowImportingTsExtensions": false,
-    "noUncheckedSideEffectImports": true,
     "types": [
       "@types/node"
     ],
