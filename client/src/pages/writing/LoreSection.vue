@@ -21,16 +21,16 @@
 
 <template>
     <div class="grid gap-8">
-        <div class="grid md:grid-cols-2 justify-start">
+        <div class="grid md:grid-cols-2 gap-x-8 justify-start">
             <div v-for="item in models">
-                <button class="link relative" @click="openItem(item.key)">
+                <button class="link text-xl" @click="openItem(item.key)">
                     > {{item.name}} <span class="text-base-content/40">({{item.type}})</span>
                 </button>
             </div>
         </div>
 
         <transition name="fade">
-            <div v-if="activeItem" class="fixed inset-0 bg-base-200/80 z-50" @click="openItem()">
+            <div v-if="activeItem" class="fixed inset-0 bg-base-200/50 z-50 backdrop-blur-xs" @click="openItem()">
                 <div class="max-w-240 mx-auto px-4 sm:px-8 py-3 flex flex-col">
                     <button class="button mb-3 px-8 ms-auto" @click.stop="openItem()">
                         Close

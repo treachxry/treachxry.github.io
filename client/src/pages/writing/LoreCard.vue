@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import {computed} from "vue";
+    import {computed, ref} from "vue";
     import MarkdownIt from "markdown-it";
     import {LoreViewModel} from "common/models/database/Lore.ts";
 
@@ -9,14 +9,23 @@
 
     const md = new MarkdownIt();
     const htmlContent = computed(() => md.render(lore.content.trim()));
+    const imagePreviewActive = ref<boolean>(false);
+
+    function toggleImagePreview() {
+        imagePreviewActive.value = !imagePreviewActive.value;
+    }
 </script>
 
 <template>
-    <div class="card">
+    <div class="card relative">
         <div class="flex items-center gap-4 mb-6">
-            <div class="size-25 border-2 flex justify-center items-center bg-base-content/10">
-                <img v-if="lore.iconUrl" alt="Lore icon" :src="lore.iconUrl" class="size-full object-cover"/>
-                <span v-else class="text-6xl opacity-70">?</span>
+            <div class="size-25">
+                <div v-if="lore.iconUrl" class="preview-image" :class="{'active': imagePreviewActive}">
+                    <img alt="Lore entry icon" :src="lore.iconUrl" @click="toggleImagePreview"/>
+                </div>
+                <div v-else class="opacity-60 size-full flex justify-center items-center bg-base-content/15 rounded-xl border-2">
+                    <span class="text-6xl rounded-xl">?</span>
+                </div>
             </div>
             <div>
                 <h1 class="text-xl">{{lore.name}}</h1>
@@ -26,7 +35,7 @@
                     <div class="me-2 opacity-70">Featured in:</div>
                     <div v-for="(link, i) in lore.links">
                         <span v-if="i">, </span>
-                        <a v-if="link.url" class="link text-secondary" :href="link.url">{{link.label}}</a>
+                        <a v-if="link.url" class="link text-secondary" target="_blank" :href="link.url">{{link.label}}</a>
                         <span v-else class="opacity-40">{{link.label}}</span>
                     </div>
                 </div>
@@ -40,6 +49,23 @@
 <style>
     @import "@/assets/style.css";
 
+    .preview-image {
+        @apply size-25 absolute inset-4 overflow-hidden rounded-xl overflow-y-auto;
+        @apply flex items-start justify-center z-10 border border-transparent hover:border-secondary;
+
+        transition: width 300ms ease, height 300ms ease, border-color 150ms ease;
+
+        &.active {
+            height: calc(100% - 2rem);
+            width: calc(100% - 2rem);
+            border: 0;
+        }
+
+        & img {
+            @apply rounded-xl object-cover;
+        }
+    }
+
     .markdown-content {
         @apply text-start;
 
@@ -47,16 +73,12 @@
             @apply text-lg;
         }
 
-        h3 {
-            @apply mt-2;
-        }
-
-        h4, h5, h6 {
-            @apply mt-1;
-        }
-
         h2:not(:first-of-type) {
-            @apply border-t border-base-content/20 pt-3 mt-3;
+            @apply border-t border-base-content/30 pt-3 mt-3;
+        }
+
+        h3, h4, h5, h6 {
+            @apply mt-4;
         }
 
         p {

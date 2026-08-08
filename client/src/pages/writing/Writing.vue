@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-    import {ref} from "vue";
+    import {useStorageRef} from "@/composables/useStorageRef.ts";
     import RedirectLink from "@/components/ui/RedirectLink.vue";
     import StorySectionWrapper from "@/pages/writing/StorySectionWrapper.vue";
     import LoreSectionWrapper from "@/pages/writing/LoreSectionWrapper.vue";
 
-    const activeTabIndex = ref<number>(0);
+    const activeTabIndex = useStorageRef<number>('writing-active-tab', () => 0);
 </script>
 
 <template>

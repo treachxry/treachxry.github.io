@@ -1,5 +1,22 @@
 <script setup lang="ts">
     import RedirectLink from "@/components/ui/RedirectLink.vue";
+    import {Project} from "@/models/Project.ts";
+    import ProjectCard from "@/pages/coding/ProjectCard.vue";
+
+    const projects: Project[] = [
+        {
+            title: 'AO3 skin generator',
+            description: 'Web app to create site skins for AO3. Customizable colors, live skin preview, etc. In development.',
+            liveUrl: '/ao3-theme-generator',
+            sourceUrl: 'https://github.com/treachxry/ao3-theme-generator'
+        },
+        {
+            title: 'Just write',
+            description: 'A very simple web interface to write without distractions. With typing sounds for your ADHD brain.',
+            liveUrl: '/just-write',
+            sourceUrl: 'https://github.com/treachxry/just-write'
+        }
+    ];
 </script>
 
 <template>
@@ -14,16 +31,10 @@
         </div>
 
         <div class="card">
-            <p>
-                <redirect-link class="link text-secondary" href="/ao3-theme-generator">AO3 skin generator</redirect-link>
-                <span> - </span>
-                <span>Web app to create site skins for AO3. Customizable colors, live skin preview, etc. In development. [<redirect-link class="link text-secondary" href="https://github.com/treachxry/ao3-theme-generator">Source code</redirect-link>]</span>
-            </p>
-            <p>
-                <redirect-link class="link text-secondary" href="/just-write">Just write</redirect-link>
-                <span> - </span>
-                <span>A very simple web interface to write without distractions. With typing sounds for your ADHD brain. [<redirect-link class="link text-secondary" href="https://github.com/treachxry/just-write">Source code</redirect-link>]</span>
-            </p>
+            <div v-for="(project, i) in projects">
+                <hr v-if="i" class="my-4 opacity-20"/>
+                <project-card :project="project"/>
+            </div>
         </div>
     </div>
 </template>
