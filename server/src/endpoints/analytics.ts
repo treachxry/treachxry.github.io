@@ -28,7 +28,7 @@ export class Analytics extends OpenAPIRoute {
 
         try {
             await c.env.profile.prepare(`
-                INSERT INTO analytics ([url], [timestamp], [country])
+                INSERT INTO Analytics ([url], [timestamp], [country])
                 VALUES (?, ?, ?)
             `)
                 .bind(url, timestamp, country)

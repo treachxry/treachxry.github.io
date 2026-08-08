@@ -9,32 +9,15 @@
     "parameters": {}
   },
   "paths": {
-    "/api/statistics": {
+    "/api/lore": {
       "get": {
-        "operationId": "get_Statistics",
+        "operationId": "get_Lore",
         "responses": {
           "200": {
-            "description": "Successful operation",
+            "description": "Successful response",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "url": {
-                        "type": "string"
-                      },
-                      "views": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "url",
-                      "views"
-                    ]
-                  }
-                }
+                "schema": {}
               }
             }
           }

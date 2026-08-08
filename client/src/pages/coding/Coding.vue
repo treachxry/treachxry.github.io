@@ -3,17 +3,17 @@
 </script>
 
 <template>
-    <div class="card">
-        <h2 class="section-title">My coding projects</h2>
-        <div class="section-body">
-            <p class="flex gap-1.5 items-center">
-                <span class="section-link text-[#999]">
-                    <img alt="GitHub logo" src="@/assets/icons/github.svg"/>
-                    <span>GitHub</span>
-                </span>
-                <span>/</span>
-                <redirect-link class="link text-secondary" href="https://github.com/treachxry" target="_blank">treachxry</redirect-link>
-            </p>
+    <div class="flex flex-col gap-4">
+        <div class="card">
+            <h2 class="section-title">My coding projects</h2>
+            <div class="section-body">
+                <redirect-link class="link text-secondary" href="https://github.com/treachxry" target="_blank">
+                    Check out my GitHub profile >
+                </redirect-link>
+            </div>
+        </div>
+
+        <div class="card">
             <p>
                 <redirect-link class="link text-secondary" href="/ao3-theme-generator">AO3 skin generator</redirect-link>
                 <span> - </span>

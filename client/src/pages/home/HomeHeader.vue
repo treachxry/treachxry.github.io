@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="h-40 flex items-center overflow-hidden bg-linear-90 from-primary to-secondary text-base-100">
+    <div class="h-40 flex items-center overflow-hidden bg-linear-90 from-primary to-secondary text-primary-content">
         <img
             :src="Avatar"
             alt="Profile picture"

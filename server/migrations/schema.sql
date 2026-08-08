@@ -7,12 +7,13 @@ CREATE TABLE IF NOT EXISTS [Analytics] (
 
 CREATE TABLE IF NOT EXISTS [Story] (
     [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+    [tbID] INTEGER NOT NULL UNIQUE,
     [title] TEXT NOT NULL,
     [summary] TEXT NOT NULL,
     [phase] TEXT NOT NULL,
     [wordCount] INTEGER NOT NULL,
     [lastUpdated] INTEGER NOT NULL,
-    [url] TEXT NOT NULL UNIQUE
+    [url] TEXT UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS [Lore] (
@@ -44,3 +45,11 @@ CREATE TABLE IF NOT EXISTS [Tag4Story] (
 
     UNIQUE([storyID], [tagID]) ON CONFLICT IGNORE
 );
+
+CREATE TABLE IF NOT EXISTS [Sync] (
+    [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+    [key] TEXT NOT NULL UNIQUE,
+    [lastSuccess] INTEGER,
+    [lastAttempt] INTEGER,
+    [error] TEXT
+)

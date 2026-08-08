@@ -79,15 +79,15 @@
                 <template v-for="(i, index) in displayedPages">
                     <page-button
                         @click="goToPage(i)"
-                        :index="i"
-                        :current-index="currentPage"
-                        class="w-8"
+                        :label="i"
+                        :active="i === currentPage"
+                        class="size-8"
                     />
                     <div
                         v-if="index < displayedPages.length - 1 && displayedPages[index + 1] - i > 1"
-                        class="w-8 text-center"
+                        class="size-8 flex justify-center items-center"
                     >
-                        ...
+                        <span>...</span>
                     </div>
                 </template>
             </div>

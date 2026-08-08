@@ -15,17 +15,14 @@
     --breakpoint-md: 55rem; /* 880px */
 
     /* colors */
-    --hue: 310;
-    --color-base-100: oklch(0.15 0 var(--hue));
-    --color-base-200: oklch(0.17 0.01 var(--hue));
-    --color-base-300: oklch(0.22 0.02 var(--hue));
-    --color-base-content: oklch(0.90 0.04 var(--hue));
-    --color-primary: oklch(0.65 0.24 16);
-    --color-secondary: oklch(0.70 0.18 294);
-    --color-accent: oklch(0.75 0.12 230);
-
-    /* style */
-    --radius: 0rem;
+    --color-base-100: oklch(15% 0 310);
+    --color-base-200: oklch(17% 0.015 310);
+    --color-base-300: oklch(22% 0.02 310);
+    --color-base-content: oklch(90% 0.04 310);
+    --color-primary: oklch(65% 0.24 16);
+    --color-primary-content: oklch(15% 0 0);
+    --color-secondary: oklch(75% 0.20 290);
+    --color-secondary-content: oklch(15% 0 0);
 
     /* fonts */
     --font-mono: "VT323", monospace;

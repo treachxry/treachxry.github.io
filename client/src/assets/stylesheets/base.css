@@ -1,5 +1,5 @@
 html {
-    @apply text-base font-mono tracking-widest;
+    @apply text-base font-mono tracking-[0.075em] leading-snug;
     @apply bg-base-200 text-base-content;
 }
 

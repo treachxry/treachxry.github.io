@@ -38,20 +38,16 @@
 <template>
     <div class="flex flex-col gap-4">
         <div class="card">
-            <h2 class="section-title">My art</h2>
+            <h2 class="section-title">My drawings</h2>
 
-            <div>
-                Coming soon...
-            </div>
-        </div>
-
-        <div class="card link-list flex flex-col">
-            <h2 class="section-title">Artists you should check out</h2>
-
-            <div class="grid md:grid-cols-2 justify-start">
-                <div v-for="link in links">
-                    <a :href="link.url" target="_blank" class="py-1">{{link.name}}</a>
-                </div>
+            <div class="section-body">
+                <p>Coming soon...</p>
+                <p>I've only done tiny bits of digital art so very much a complete beginner. I'll post my stuff here after I improve a bit more. For now, I shall recommend you to check out a few other artists who inspire me:</p>
+                <p class="link-list grid md:grid-cols-2 justify-start">
+                    <span v-for="link in links">
+                        <a :href="link.url" target="_blank" class="py-1 link">{{link.name}}</a>
+                    </span>
+                </p>
             </div>
         </div>
     </div>
@@ -60,11 +56,7 @@
 <style scoped>
     @import "@/assets/style.css";
 
-    .link-list a {
-        @apply hover:underline;
-
-        &:before {
-            content: '> ';
-        }
+    .link-list a:before {
+        content: '> ';
     }
 </style>

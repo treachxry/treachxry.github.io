@@ -4,14 +4,14 @@
  */
 
 export interface paths {
-    "/api/statistics": {
+    "/api/lore": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get: operations["get_Statistics"];
+        get: operations["get_Lore"];
         put?: never;
         post?: never;
         delete?: never;
@@ -64,7 +64,7 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    get_Statistics: {
+    get_Lore: {
         parameters: {
             query?: never;
             header?: never;
@@ -73,16 +73,13 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description Successful operation */
+            /** @description Successful response */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        url: string;
-                        views: number;
-                    }[];
+                    "application/json": unknown;
                 };
             };
         };

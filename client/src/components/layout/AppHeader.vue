@@ -15,7 +15,7 @@
     @import "@/assets/style.css";
 
     a {
-        @apply select-none text-xl h-11 px-6 pt-1 pb-2 border-transparent border-4 border-b-0;
+        @apply select-none text-xl h-11 px-3 xs:px-6 pt-1 pb-2 border-transparent border-4 border-b-0;
 
         &.router-link-active {
             @apply text-primary border-b-primary border-b-4 pb-1;
