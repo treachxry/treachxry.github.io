@@ -10,7 +10,7 @@ export class Stories extends OpenAPIRoute {
     async handle(c: AppContext): Promise<StoryViewModel[]> {
         const {syncIfOutdated} = useSync(c.env.profile, 'Story');
 
-        const syncInterval: number = 10 * 60 * 1000;
+        const syncInterval: number = 3600;
         const syncResult: Promise<boolean> = syncIfOutdated(syncInterval, () => syncStories(c));
 
         c.executionCtx.waitUntil(syncResult);

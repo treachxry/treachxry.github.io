@@ -1,6 +1,7 @@
 <script lang="ts" setup>
     import {useRoute} from "vue-router";
     import {initializeApiClient} from "@/composables/useApiClient";
+    import {initializeAuth} from "@/composables/useAuth.ts";
     import AppFooter from "@/components/layout/AppFooter.vue";
     import AppBody from "@/components/layout/AppBody.vue";
     import AppHeader from "@/components/layout/AppHeader.vue";
@@ -8,7 +9,8 @@
 
     const route = useRoute();
 
-    initializeApiClient(undefined);
+    initializeApiClient();
+    initializeAuth();
 </script>
 
 <template>

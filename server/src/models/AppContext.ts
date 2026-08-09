@@ -1,3 +1,4 @@
-import type {Context} from "hono";
+import {Context} from "hono";
+import {AppVariables} from "@/models/AppVariables";
 
-export type AppContext = Context<{ Bindings: Env }>;
+export type AppContext = Context<{ Bindings: Env, Variables: AppVariables }>;

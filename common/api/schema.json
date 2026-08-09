@@ -74,6 +74,169 @@
           }
         }
       }
+    },
+    "/api/admin/me": {
+      "get": {
+        "response": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "def": {
+                    "type": "object",
+                    "shape": {
+                      "username": {
+                        "def": {
+                          "type": "nullable",
+                          "innerType": {
+                            "def": {
+                              "type": "string"
+                            },
+                            "type": "string",
+                            "format": null,
+                            "minLength": null,
+                            "maxLength": null
+                          }
+                        },
+                        "type": "nullable"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get_Me",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "response": {
+          "200": {
+            "description": "Successful login",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "def": {
+                    "type": "object",
+                    "shape": {
+                      "ok": {
+                        "def": {
+                          "type": "boolean"
+                        },
+                        "type": "boolean"
+                      },
+                      "username": {
+                        "def": {
+                          "type": "string"
+                        },
+                        "type": "string",
+                        "format": null,
+                        "minLength": null,
+                        "maxLength": null
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Failed login",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "def": {
+                    "type": "object",
+                    "shape": {
+                      "ok": {
+                        "def": {
+                          "type": "boolean"
+                        },
+                        "type": "boolean"
+                      },
+                      "error": {
+                        "def": {
+                          "type": "string"
+                        },
+                        "type": "string",
+                        "format": null,
+                        "minLength": null,
+                        "maxLength": null
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post_Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 20
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8,
+                    "maxLength": 40
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "operationId": "post_Logout",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   "webhooks": {}

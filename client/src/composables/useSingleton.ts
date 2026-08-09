@@ -1,26 +1,32 @@
-import {inject, provide} from "vue";
-
 export interface ISingleton<TUse, TState> {
-    initializeComposable: (state: TState) => TUse
+    initializeComposable: (state?: TState) => TUse
     useComposable: () => TUse
 }
 
-export function useSingleton<TUse, TState = void>(useFn: (state: TState) => TUse): ISingleton<TUse, TState> {
+const map: Map<Symbol, any> = new Map<Symbol, any>();
+
+export function useSingleton<TUse, TState = void>(useFn: (state?: TState) => TUse): ISingleton<TUse, TState> {
     const key = Symbol();
+    let initialized: boolean = false;
 
-    function initializeComposable(state: TState): TUse {
-        const composable = useFn(state);
+    function initializeComposable(state?: TState): TUse {
+        if(initialized) {
+            return useComposable();
+        }
 
-        provide(key, composable);
+        const composable: TUse = useFn(state);
+
+        map.set(key, composable);
+        initialized = true;
 
         return composable;
     }
 
     function useComposable(): TUse {
-        const composable = inject<TUse>(key);
+        const composable: TUse | undefined = map.get(key);
 
         if(composable === undefined) {
-            throw new Error('Missing provided composable');
+            return initializeComposable();
         }
 
         return composable;

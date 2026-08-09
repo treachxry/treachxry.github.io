@@ -24,6 +24,7 @@
         <div class="card">
             <h2 class="section-title">My coding projects</h2>
             <div class="section-body">
+                <p>I be doing some coding too.</p>
                 <redirect-link class="link text-secondary" href="https://github.com/treachxry" target="_blank">
                     Check out my GitHub profile >
                 </redirect-link>

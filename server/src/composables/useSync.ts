@@ -34,9 +34,12 @@ export function useSync(db: D1Database, key: string) {
 
     async function syncIfOutdated(syncInterval: number, syncAction: () => any | Promise<any>): Promise<boolean> {
         const lastSync: number = await getLastSynced();
-        const now: number = Date.now();
+        const now: number = Math.round(Date.now() / 1000);
 
-        if(now - lastSync < syncInterval) {
+        const elapsed: number = now - lastSync;
+        const shouldSync: boolean = elapsed >= syncInterval || elapsed < 0;
+
+        if(!shouldSync) {
             return false;
         }
 

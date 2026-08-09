@@ -52,4 +52,13 @@ CREATE TABLE IF NOT EXISTS [Sync] (
     [lastSuccess] INTEGER,
     [lastAttempt] INTEGER,
     [error] TEXT
-)
+);
+
+CREATE TABLE IF NOT EXISTS [User] (
+    [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+    [username] TEXT NOT NULL UNIQUE,
+    [passwordHash] TEXT NOT NULL,
+    [passwordSalt] TEXT NOT NULL,
+    [isAdmin] BOOLEAN NOT NULL DEFAULT FALSE,
+    [isActive] BOOLEAN NOT NULL DEFAULT FALSE
+);
