@@ -1,0 +1,1 @@
+import{A as e,N as t,S as n,g as r,n as i,p as a,y as o}from"./index-Cjmd-okj.js";var s={class:`card`},c=o({__name:`Admin`,setup(o){let{username:c}=i();return(i,o)=>(n(),r(`div`,s,[a(`div`,null,`Current user: `+t(e(c)??`null`),1)]))}});export{c as default};
