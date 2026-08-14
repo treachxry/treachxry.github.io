@@ -1,1 +1,0 @@
-import{S as e,g as t,w as n,y as r}from"./index-D-weD6j5.js";var i=[`href`],a=r({__name:`RedirectLink`,props:{href:{}},setup(r){return(a,o)=>(e(),t(`a`,{href:`/#/?redirect=true&to=${r.href}`,target:`_blank`},[n(a.$slots,`default`)],8,i))}});export{a as t};
