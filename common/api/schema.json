@@ -39,42 +39,6 @@
         }
       }
     },
-    "/api/analytics": {
-      "post": {
-        "operationId": "post_Analytics",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "maxLength": 200
-            },
-            "required": true,
-            "name": "url",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "success"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/admin/me": {
       "get": {
         "response": {
@@ -109,6 +73,390 @@
           }
         },
         "operationId": "get_Me",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/sync/read-all": {
+      "get": {
+        "response": {
+          "200": {
+            "body": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "def": {
+                      "type": "object",
+                      "shape": {
+                        "id": {
+                          "def": {
+                            "type": "number",
+                            "checks": []
+                          },
+                          "type": "number",
+                          "minValue": null,
+                          "maxValue": null,
+                          "isInt": false,
+                          "isFinite": true,
+                          "format": null
+                        },
+                        "key": {
+                          "def": {
+                            "type": "string"
+                          },
+                          "type": "string",
+                          "format": null,
+                          "minLength": null,
+                          "maxLength": null
+                        },
+                        "lastSuccess": {
+                          "def": {
+                            "type": "optional",
+                            "innerType": {
+                              "def": {
+                                "type": "number",
+                                "checks": []
+                              },
+                              "type": "number",
+                              "minValue": null,
+                              "maxValue": null,
+                              "isInt": false,
+                              "isFinite": true,
+                              "format": null
+                            }
+                          },
+                          "type": "optional"
+                        },
+                        "lastAttempt": {
+                          "def": {
+                            "type": "optional",
+                            "innerType": {
+                              "def": {
+                                "type": "number",
+                                "checks": []
+                              },
+                              "type": "number",
+                              "minValue": null,
+                              "maxValue": null,
+                              "isInt": false,
+                              "isFinite": true,
+                              "format": null
+                            }
+                          },
+                          "type": "optional"
+                        },
+                        "error": {
+                          "def": {
+                            "type": "optional",
+                            "innerType": {
+                              "def": {
+                                "type": "string"
+                              },
+                              "type": "string",
+                              "format": null,
+                              "minLength": null,
+                              "maxLength": null
+                            }
+                          },
+                          "type": "optional"
+                        },
+                        "interval": {
+                          "def": {
+                            "type": "optional",
+                            "innerType": {
+                              "def": {
+                                "type": "number",
+                                "checks": []
+                              },
+                              "type": "number",
+                              "minValue": null,
+                              "maxValue": null,
+                              "isInt": false,
+                              "isFinite": true,
+                              "format": null
+                            }
+                          },
+                          "type": "optional"
+                        },
+                        "isActive": {
+                          "def": {
+                            "type": "boolean"
+                          },
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get_ReadSync",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/sync/create-or-update": {
+      "post": {
+        "operationId": "post_UpdateSync",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                  },
+                  "interval": {
+                    "type": "number"
+                  },
+                  "isActive": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "key",
+                  "isActive"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/lore/read-all": {
+      "get": {
+        "operationId": "get_ReadLore",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/lore/create-or-update": {
+      "post": {
+        "operationId": "post_UpdateLore",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "type": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "iconUrl": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "content": {
+                    "type": "string",
+                    "maxLength": 50000
+                  },
+                  "isActive": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "key",
+                  "name",
+                  "type",
+                  "content",
+                  "isActive"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/lore/delete": {
+      "post": {
+        "operationId": "post_DeleteLore",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/story/read-all": {
+      "get": {
+        "operationId": "get_ReadStories",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/tag/read-all": {
+      "get": {
+        "operationId": "get_ReadTags",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/tag/create-or-update": {
+      "post": {
+        "operationId": "post_UpdateTag",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/tag/delete": {
+      "post": {
+        "operationId": "post_DeleteTag",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful response",

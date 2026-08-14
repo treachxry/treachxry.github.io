@@ -1,8 +1,8 @@
 import {z} from "zod";
 import {contentJson, OpenAPIRoute} from "chanfana";
 import {AppContext} from "@/models/AppContext";
-import {UserDbModel} from "common/models/database/User";
-import {LoginResponseModel} from "common/models/LoginResponseModel";
+import {UserDbModel} from "common/models/user/UserDbModel";
+import {LoginResponseModel} from "common/models/user/LoginResponseModel";
 import {SessionClaims} from "@/models/SessionClaims";
 import {verifyPassword} from "@/functions/password";
 import {signSession} from "@/functions/jwt";

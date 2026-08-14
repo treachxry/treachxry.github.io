@@ -1,6 +1,5 @@
 <script setup lang="ts">
-    import {StoryViewModel} from "common/models/database/Story.ts";
-    import RedirectLink from "@/components/ui/RedirectLink.vue";
+    import {StoryViewModel} from "common/models/story/StoryViewModel.ts";
 
     const {story} = defineProps<{
         story: StoryViewModel
@@ -46,9 +45,9 @@
                 </span>
             </div>
 
-            <redirect-link v-if="story.url" :href="story.url" class="link text-secondary text-nowrap p-1 -m-1">
+            <a v-if="story.url" :href="story.url" class="link text-secondary text-nowrap p-1 -m-1" target="_blank">
                 read on AO3 >
-            </redirect-link>
+            </a>
             <span v-else class="opacity-50 text-[15px]">
                 To be published...
             </span>

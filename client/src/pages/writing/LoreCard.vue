@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import {computed, ref} from "vue";
     import MarkdownIt from "markdown-it";
-    import {LoreViewModel} from "common/models/database/Lore.ts";
+    import {LoreViewModel} from "common/models/lore/LoreViewModel.ts";
 
     const {lore} = defineProps<{
         lore: LoreViewModel

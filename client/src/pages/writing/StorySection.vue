@@ -2,9 +2,9 @@
     import {computed} from "vue";
     import {useApiClient} from "@/composables/useApiClient";
     import StoryCard from "@/pages/writing/StoryCard.vue";
-    import {StoryPhase} from "common/models/StoryPhase";
-    import {StoryViewModel} from "common/models/database/Story.ts";
+    import {StoryPhase} from "common/models/story/StoryPhase.ts";
     import PageView from "@/components/ui/PageView.vue";
+    import {StoryViewModel} from "common/models/story/StoryViewModel.ts";
 
     const phases: string[] = [
         StoryPhase.Finished,

@@ -1,4 +1,4 @@
-import {ErrorMessage} from "common/models/ErrorMessage";
+import {ErrorMessage} from "@/models/ErrorMessage";
 
 export interface TrackBearResponse<T> {
     success: boolean

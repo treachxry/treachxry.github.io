@@ -1,4 +1,4 @@
-import {TrackBearResponse} from "common/models/TrackBearResponse";
+import {TrackBearResponse} from "@/models/TrackBearResponse";
 
 export function useTrackBearApi(token: string) {
     async function sendRequest<T>(path: string, init: RequestInit = {}): Promise<TrackBearResponse<T>> {

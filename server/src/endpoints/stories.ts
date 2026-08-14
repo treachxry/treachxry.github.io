@@ -2,16 +2,16 @@ import {useSync} from "@/composables/useSync";
 import {useTrackBearApi} from "@/composables/useTrackBearApi";
 import {OpenAPIRoute} from "chanfana";
 import {AppContext} from "@/models/AppContext";
-import {StoryDbModel, StoryViewModel} from "common/models/database/Story";
-import {StoryData} from "common/models/StoryData";
-import {TrackBearResponse} from "common/models/TrackBearResponse";
+import {StoryDbModel} from "common/models/story/StoryDbModel";
+import {StoryData} from "common/models/story/StoryData";
+import {TrackBearResponse} from "@/models/TrackBearResponse";
+import {StoryViewModel} from "common/models/story/StoryViewModel";
 
 export class Stories extends OpenAPIRoute {
-    async handle(c: AppContext): Promise<StoryViewModel[]> {
+    async handle(c: AppContext) {
         const {syncIfOutdated} = useSync(c.env.profile, 'Story');
 
-        const syncInterval: number = 3600;
-        const syncResult: Promise<boolean> = syncIfOutdated(syncInterval, () => syncStories(c));
+        const syncResult: Promise<boolean> = syncIfOutdated(() => syncStories(c));
 
         c.executionCtx.waitUntil(syncResult);
 
@@ -27,10 +27,12 @@ export class Stories extends OpenAPIRoute {
             FROM [Story] S
         `).all<any>();
 
-        return query.results.map(m => ({
+        const results: StoryViewModel[] =  query.results.map(m => ({
             ...m as StoryDbModel,
             tags: JSON.parse(m.tagsJson) ?? []
         }));
+
+        return c.json(results);
     }
 }
 

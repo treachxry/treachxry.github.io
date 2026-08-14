@@ -1,5 +1,6 @@
-export interface StoryDbModel {
-    id: number
+import {DbModel} from "../DbModel";
+
+export interface StoryDbModel extends DbModel {
     tbID: number
     title: string
     summary: string
@@ -7,8 +8,5 @@ export interface StoryDbModel {
     wordCount: number
     lastUpdated: number
     url: string | null
-}
-
-export interface StoryViewModel extends StoryDbModel {
-    tags: string[]
+    isActive: boolean
 }

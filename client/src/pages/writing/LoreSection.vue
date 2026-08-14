@@ -1,13 +1,13 @@
 <script setup lang="ts">
     import {computed, ref} from "vue";
     import {useApiClient} from "@/composables/useApiClient.ts";
-    import {LoreDbModel, LoreViewModel} from "common/models/database/Lore.ts"
+    import {LoreViewModel} from "common/models/lore/LoreViewModel"
     import LoreCard from "@/pages/writing/LoreCard.vue";
 
     const api = useApiClient();
     const {data} = await api.GET('/api/lore');
 
-    const models = computed(() => data as LoreDbModel[]);
+    const models = computed(() => data as LoreViewModel[]);
     const activeKey = ref<string>();
 
     const activeItem = computed(() => {
@@ -36,7 +36,7 @@
                         Close
                     </button>
                     <lore-card
-                        :lore="activeItem as LoreViewModel"
+                        :lore="activeItem"
                         @click.stop
                         class="overflow-y-auto"
                         style="max-height: calc(100vh - 4.5rem)"

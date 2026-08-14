@@ -1,5 +1,6 @@
-export interface UserDbModel {
-    id: number
+import {DbModel} from "../DbModel";
+
+export interface UserDbModel extends DbModel {
     username: string
     passwordHash: string
     passwordSalt: string

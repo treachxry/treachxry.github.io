@@ -1,10 +1,3 @@
-CREATE TABLE IF NOT EXISTS [Analytics] (
-    [id] INTEGER PRIMARY KEY AUTOINCREMENT,
-    [url] TEXT NOT NULL,
-    [timestamp] INTEGER NOT NULL,
-    [country] TEXT
-);
-
 CREATE TABLE IF NOT EXISTS [Story] (
     [id] INTEGER PRIMARY KEY AUTOINCREMENT,
     [tbID] INTEGER NOT NULL UNIQUE,
@@ -13,7 +6,8 @@ CREATE TABLE IF NOT EXISTS [Story] (
     [phase] TEXT NOT NULL,
     [wordCount] INTEGER NOT NULL,
     [lastUpdated] INTEGER NOT NULL,
-    [url] TEXT UNIQUE
+    [url] TEXT UNIQUE,
+    [isActive] BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS [Lore] (
@@ -22,7 +16,8 @@ CREATE TABLE IF NOT EXISTS [Lore] (
     [name] TEXT NOT NULL,
     [type] TEXT NOT NULL,
     [iconUrl] TEXT,
-    [content] TEXT NOT NULL
+    [content] TEXT NOT NULL,
+    [isActive] BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS [Lore4Story] (
@@ -30,6 +25,8 @@ CREATE TABLE IF NOT EXISTS [Lore4Story] (
     [storyID] INTEGER NOT NULL,
     [loreID] INTEGER NOT NULL,
 
+    FOREIGN KEY ([storyID]) REFERENCES [Story]([id]) ON DELETE CASCADE,
+    FOREIGN KEY ([loreID]) REFERENCES [Lore]([id]) ON DELETE CASCADE,
     UNIQUE([storyID], [loreID]) ON CONFLICT IGNORE
 );
 
@@ -43,6 +40,8 @@ CREATE TABLE IF NOT EXISTS [Tag4Story] (
     [storyID] INTEGER NOT NULL,
     [tagID] INTEGER NOT NULL,
 
+    FOREIGN KEY ([storyID]) REFERENCES [Story]([id]) ON DELETE CASCADE,
+    FOREIGN KEY ([tagID]) REFERENCES [Tag]([id]) ON DELETE CASCADE,
     UNIQUE([storyID], [tagID]) ON CONFLICT IGNORE
 );
 
@@ -51,7 +50,9 @@ CREATE TABLE IF NOT EXISTS [Sync] (
     [key] TEXT NOT NULL UNIQUE,
     [lastSuccess] INTEGER,
     [lastAttempt] INTEGER,
-    [error] TEXT
+    [error] TEXT,
+    [interval] INTEGER,
+    [isActive] BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS [User] (

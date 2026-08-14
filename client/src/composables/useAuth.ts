@@ -1,7 +1,7 @@
 import {ref} from "vue";
 import {useSingleton} from "@/composables/useSingleton.ts";
 import {useApiClient} from "@/composables/useApiClient.ts";
-import {LoginResponseModel} from "common/models/LoginResponseModel";
+import {LoginResponseModel} from "common/models/user/LoginResponseModel.ts";
 
 const {initializeComposable, useComposable} = useSingleton(useAuth);
 

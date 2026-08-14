@@ -1,9 +1,10 @@
 import {OpenAPIRoute} from "chanfana";
 import {AppContext} from "@/models/AppContext";
-import {LoreDbModel, LoreViewModel} from "common/models/database/Lore";
+import {LoreDbModel} from "common/models/lore/LoreDbModel";
+import {LoreViewModel} from "common/models/lore/LoreViewModel";
 
 export class Lore extends OpenAPIRoute {
-    async handle(c: AppContext): Promise<LoreViewModel[]> {
+    async handle(c: AppContext) {
         const query = await c.env.profile.prepare(`
             SELECT 
                 L.*,
@@ -18,9 +19,11 @@ export class Lore extends OpenAPIRoute {
             FROM [Lore] L
         `).all<any>();
 
-        return query.results.map(m => ({
+        const results: LoreViewModel[] = query.results.map(m => ({
             ...m as LoreDbModel,
             links: JSON.parse(m.storyJson) ?? {}
         }));
+
+        return c.json(results);
     }
 }

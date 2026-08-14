@@ -1,14 +1,20 @@
 export function useSync(db: D1Database, key: string) {
-    async function getLastSynced(): Promise<number> {
+    const DEFAULT_SYNC_INTERVAL: number = 3600;
+
+    async function getLastSync() {
         const row = await db.prepare(`
-                SELECT [lastSuccess]
+                SELECT *
                 FROM [Sync]
                 WHERE [key] = ?
             `)
             .bind(key)
             .first();
 
-        return Number(row?.lastSuccess ?? 0);
+        return {
+            lastSuccess: Number(row?.lastSuccess ?? 0),
+            interval: Number(row?.interval ?? DEFAULT_SYNC_INTERVAL),
+            isActive: Boolean(row?.isActive ?? true)
+        };
     }
 
     async function setLastSynced(timestamp: number, error: null | string): Promise<void> {
@@ -32,12 +38,17 @@ export function useSync(db: D1Database, key: string) {
         }
     }
 
-    async function syncIfOutdated(syncInterval: number, syncAction: () => any | Promise<any>): Promise<boolean> {
-        const lastSync: number = await getLastSynced();
+    async function syncIfOutdated(syncAction: () => any | Promise<any>): Promise<boolean> {
+        const {lastSuccess, interval, isActive} = await getLastSync();
+
+        if(!isActive) {
+            return false;
+        }
+
         const now: number = Math.round(Date.now() / 1000);
 
-        const elapsed: number = now - lastSync;
-        const shouldSync: boolean = elapsed >= syncInterval || elapsed < 0;
+        const elapsed: number = now - lastSuccess;
+        const shouldSync: boolean = elapsed >= interval || elapsed < 0;
 
         if(!shouldSync) {
             return false;

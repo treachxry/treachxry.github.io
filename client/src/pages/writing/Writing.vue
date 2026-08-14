@@ -1,6 +1,5 @@
 <script lang="ts" setup>
     import {useStorageRef} from "@/composables/useStorageRef.ts";
-    import RedirectLink from "@/components/ui/RedirectLink.vue";
     import StorySectionWrapper from "@/pages/writing/StorySectionWrapper.vue";
     import LoreSectionWrapper from "@/pages/writing/LoreSectionWrapper.vue";
 
@@ -15,9 +14,9 @@
                 <p>I write smut as a hobby and publish my stories exclusively on AO3. No commissions or requests, but suggestions are welcome if you have something interesting in mind.</p>
                 <p>My stories are mainly original fiction with a focus on messed up relationships and kinks. These include latex, non-con, bondage, femdom, breathplay, perverted contraptions, corruption, aphrodisiacs, etc. You get the picture.</p>
 
-                <redirect-link class="link text-secondary" href="https://archiveofourown.org/users/Treachery" target="_blank">
+                <a class="link text-secondary" href="https://archiveofourown.org/users/Treachery" target="_blank">
                     Check out my AO3 profile >
-                </redirect-link>
+                </a>
             </div>
         </div>
 

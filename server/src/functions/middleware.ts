@@ -2,8 +2,8 @@ import type {Context, Next} from "hono";
 import {signSession, verifySession} from "./jwt";
 import {SessionClaims} from "@/models/SessionClaims";
 
-export const TOKEN_LIFETIME_SECONDS = 30 * 60;
-const REFRESH_THRESHOLD_SECONDS = 10 * 60;
+export const TOKEN_LIFETIME_SECONDS = 24 * 60 * 60;
+const REFRESH_THRESHOLD_SECONDS = 8 * 60 * 60;
 const MAX_SESSION_SECONDS = 7 * 24 * 60 * 60;
 
 const COOKIE_NAME = 'session';

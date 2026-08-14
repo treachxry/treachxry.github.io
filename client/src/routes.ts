@@ -1,7 +1,7 @@
-import {createRouter, createWebHashHistory} from "vue-router";
+import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
 import {initializeAuth} from "@/composables/useAuth.ts";
 
-const routes = [
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
         component: () => import("@/pages/home/Home.vue")
@@ -20,14 +20,33 @@ const routes = [
     },
     {
         path: '/login',
-        name: 'login',
         component: () => import("@/pages/admin/Login.vue")
     },
     {
         path: '/admin',
-        name: 'dashboard',
-        component: () => import("@/pages/admin/Admin.vue"),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true },
+        children: [
+            {
+                path: '',
+                component: () => import("@/pages/admin/Admin.vue"),
+            },
+            {
+                path: 'sync',
+                component: () => import("@/pages/admin/ManageSync.vue")
+            },
+            {
+                path: 'lore',
+                component: () => import("@/pages/admin/ManageLore.vue")
+            },
+            {
+                path: 'stories',
+                component: () => import("@/pages/admin/ManageStories.vue")
+            },
+            {
+                path: 'tags',
+                component: () => import("@/pages/admin/ManageTags.vue")
+            }
+        ]
     }
 ];
 
@@ -44,11 +63,11 @@ router.beforeEach(async (to) => {
     }
 
     if (to.meta.requiresAuth && !auth.username.value) {
-        return { name: 'login', query: { returnUrl: to.fullPath } };
+        return { path: '/login', query: { returnUrl: to.fullPath } };
     }
 
-    if (to.name === 'login' && auth.username.value) {
-        return { name: 'dashboard' };
+    if (to.path === '/login' && auth.username.value) {
+        return { path: '/admin' };
     }
 });
 
