@@ -1,7 +1,7 @@
+import {z} from "zod";
 import {contentJson, OpenAPIRoute} from "chanfana";
 import {AppContext} from "@/models/AppContext";
 import {TagDbModel} from "common/models/tag/TagDbModel";
-import {z} from "zod";
 
 export class ReadTags extends OpenAPIRoute {
     async handle(c: AppContext) {
@@ -14,7 +14,7 @@ export class ReadTags extends OpenAPIRoute {
     }
 }
 
-export class UpdateTag extends OpenAPIRoute {
+export class CreateOrUpdateTag extends OpenAPIRoute {
     schema = {
         request: {
             body: contentJson(z.object({

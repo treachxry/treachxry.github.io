@@ -6,9 +6,9 @@ import {Login} from "@/endpoints/auth/login";
 import {Logout} from "@/endpoints/auth/logout";
 import {Me} from "@/endpoints/admin/me";
 import {ReadSync, UpdateSync} from "@/endpoints/admin/sync";
-import {DeleteLore, ReadLore, UpdateLore} from "@/endpoints/admin/lore";
-import {ReadStories} from "@/endpoints/admin/story";
-import {DeleteTag, ReadTags, UpdateTag} from "@/endpoints/admin/tags";
+import {DeleteLore, ReadLore, CreateLore, UpdateLore} from "@/endpoints/admin/lore";
+import {DeleteStory, ReadStories, UpdateStory} from "@/endpoints/admin/story";
+import {DeleteTag, ReadTags, CreateOrUpdateTag} from "@/endpoints/admin/tags";
 
 const app = createApp();
 
@@ -40,14 +40,17 @@ function createAdminRouter() {
         .get('/sync/read-all', ReadSync)
         .post('/sync/create-or-update', UpdateSync)
 
-        .get('/lore/read-all', ReadLore)
-        .post('/lore/create-or-update', UpdateLore)
+        .get('/lore/read', ReadLore)
+        .post('/lore/create', CreateLore)
+        .post('/lore/update', UpdateLore)
         .post('/lore/delete', DeleteLore)
 
         .get('/story/read-all', ReadStories)
+        .post('/story/update', UpdateStory)
+        .post('/story/delete', DeleteStory)
 
         .get('/tag/read-all', ReadTags)
-        .post('/tag/create-or-update', UpdateTag)
+        .post('/tag/create-or-update', CreateOrUpdateTag)
         .post('/tag/delete', DeleteTag)
 
     return router;

@@ -14,9 +14,10 @@ export class Lore extends OpenAPIRoute {
                     )
                     FROM [Lore4Story] LS
                     JOIN [Story] S ON S.[ID] = LS.[StoryID]
-                    WHERE LS.[LoreID] = L.[ID]
+                    WHERE LS.[LoreID] = L.[ID] AND S.[isActive] = 1
                 ) AS [storyJson]
             FROM [Lore] L
+            WHERE L.[isActive] = 1
         `).all<any>();
 
         const results: LoreViewModel[] = query.results.map(m => ({

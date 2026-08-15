@@ -84,7 +84,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/admin/lore/read-all": {
+    "/api/admin/lore/read": {
         parameters: {
             query?: never;
             header?: never;
@@ -100,7 +100,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/admin/lore/create-or-update": {
+    "/api/admin/lore/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["post_CreateLore"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/admin/lore/update": {
         parameters: {
             query?: never;
             header?: never;
@@ -148,6 +164,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/admin/story/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["post_UpdateStory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/admin/story/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["post_DeleteStory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/admin/tag/read-all": {
         parameters: {
             query?: never;
@@ -173,7 +221,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        post: operations["post_UpdateTag"];
+        post: operations["post_CreateOrUpdateTag"];
         delete?: never;
         options?: never;
         head?: never;
@@ -369,6 +417,38 @@ export interface operations {
             };
         };
     };
+    post_CreateLore: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    id: number;
+                    key: string;
+                    name: string;
+                    type: string;
+                    iconUrl: string | null;
+                    content: string;
+                    isActive: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     post_UpdateLore: {
         parameters: {
             query?: never;
@@ -383,10 +463,10 @@ export interface operations {
                     key: string;
                     name: string;
                     type: string;
-                    iconUrl?: string;
+                    iconUrl: string | null;
                     content: string;
                     isActive: boolean;
-                };
+                }[];
             };
         };
         responses: {
@@ -447,6 +527,60 @@ export interface operations {
             };
         };
     };
+    post_UpdateStory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    id: number;
+                    url: string | null;
+                    isActive: boolean;
+                }[];
+            };
+        };
+        responses: {
+            /** @description Successful response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    post_DeleteStory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    id: number;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     get_ReadTags: {
         parameters: {
             query?: never;
@@ -467,7 +601,7 @@ export interface operations {
             };
         };
     };
-    post_UpdateTag: {
+    post_CreateOrUpdateTag: {
         parameters: {
             query?: never;
             header?: never;

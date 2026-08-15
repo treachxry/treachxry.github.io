@@ -30,19 +30,13 @@
 </script>
 
 <template>
-    <div :class="{'open': open}" class="relative">
+    <div :class="{'v-grid-active': open}" class="relative">
         <button class="text-left w-full" @click="toggleOpen">
             {{ currentValue ? 'True' : 'False' }}
         </button>
         <div v-if="open" class="absolute z-10 top-full mt-1.5 -left-2 -right-2 flex flex-col bg-base-300">
             <button @click="selectValue(true)" class="button rounded-none">True</button>
             <button @click="selectValue(false)" class="button rounded-none">False</button>
-            <!--
-            <textarea
-                :disabled="!editable"
-                v-model="currentValue"
-                class="w-full min-h-60 max-h-screen p-4  border border-secondary outline-0"
-            />-->
         </div>
     </div>
 </template>

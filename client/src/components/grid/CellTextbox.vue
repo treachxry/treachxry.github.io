@@ -20,7 +20,7 @@
 </script>
 
 <template>
-    <div :class="{'open': open}">
+    <div :class="{'v-grid-active': open}">
         <button class="link text-left w-full" @click="toggleOpen" >
             {{ editable ? 'edit' : 'view' }}
         </button>

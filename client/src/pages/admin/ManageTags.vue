@@ -21,12 +21,16 @@
         return data as TagDbModel[];
     }
 
-    async function createOrUpdateTag(model: TagDbModel): Promise<void> {
+    async function createTag(model: TagDbModel): Promise<void> {
         const {data, response, error} = await api.POST('/api/admin/tag/create-or-update', {credentials: 'include', body: model});
 
         if(response.ok) {
             models.value = await readTags();
         }
+    }
+
+    async function updateTag(models: TagDbModel[]) {
+
     }
 
     async function deleteTag(model: TagDbModel): Promise<void> {
@@ -38,8 +42,8 @@
     }
 
     const events: IGridEvents<TagDbModel> = {
-        create: createOrUpdateTag,
-        update: createOrUpdateTag,
+        create: createTag,
+        update: updateTag,
         remove: deleteTag
     };
 </script>
@@ -47,8 +51,8 @@
 <template>
     <admin-subview>
         <grid-table
-            v-model="models"
             :config="config"
+            :data="models"
             :events="events"
         />
     </admin-subview>

@@ -259,7 +259,7 @@
         }
       }
     },
-    "/api/admin/lore/read-all": {
+    "/api/admin/lore/read": {
       "get": {
         "operationId": "get_ReadLore",
         "responses": {
@@ -274,9 +274,9 @@
         }
       }
     },
-    "/api/admin/lore/create-or-update": {
+    "/api/admin/lore/create": {
       "post": {
-        "operationId": "post_UpdateLore",
+        "operationId": "post_CreateLore",
         "requestBody": {
           "content": {
             "application/json": {
@@ -302,7 +302,10 @@
                     "maxLength": 100
                   },
                   "iconUrl": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "maxLength": 200
                   },
                   "content": {
@@ -318,9 +321,80 @@
                   "key",
                   "name",
                   "type",
+                  "iconUrl",
                   "content",
                   "isActive"
                 ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/lore/update": {
+      "post": {
+        "operationId": "post_UpdateLore",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "key": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "type": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "iconUrl": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "maxLength": 200
+                    },
+                    "content": {
+                      "type": "string",
+                      "maxLength": 50000
+                    },
+                    "isActive": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "type",
+                    "iconUrl",
+                    "content",
+                    "isActive"
+                  ]
+                }
               }
             }
           }
@@ -384,6 +458,86 @@
         }
       }
     },
+    "/api/admin/story/update": {
+      "post": {
+        "operationId": "post_UpdateStory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "maxLength": 200
+                    },
+                    "isActive": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "url",
+                    "isActive"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/story/delete": {
+      "post": {
+        "operationId": "post_DeleteStory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/admin/tag/read-all": {
       "get": {
         "operationId": "get_ReadTags",
@@ -401,7 +555,7 @@
     },
     "/api/admin/tag/create-or-update": {
       "post": {
-        "operationId": "post_UpdateTag",
+        "operationId": "post_CreateOrUpdateTag",
         "requestBody": {
           "content": {
             "application/json": {

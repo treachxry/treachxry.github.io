@@ -1,0 +1,40 @@
+.v-grid-table {
+    @apply border-separate table-fixed;
+}
+
+.v-grid-header-cell {
+    @apply text-left min-w-20 text-sm px-2 py-1 border border-base-content/20;
+    @apply border-b-base-content/50 text-secondary text-nowrap;
+}
+
+.v-grid-cell {
+    @apply text-left min-w-20 text-sm px-2 py-1 border border-base-content/20;
+
+    &.v-grid-readonly {
+        @apply border-dashed;
+    }
+
+    &.v-grid-dirty {
+        @apply border-amber-400;
+    }
+
+    &:has(.v-grid-active) {
+        @apply border-secondary;
+    }
+}
+
+.v-grid-row {
+    @apply relative;
+
+    &:nth-child(odd) {
+        @apply bg-base-content/5;
+    }
+}
+
+.v-grid-button {
+    @apply border border-base-content/20 bg-base-300 transition-all outline-0 px-2 py-0 text-sm;
+
+    &:hover, &:focus-visible {
+        @apply border-secondary bg-base-200;
+    }
+}

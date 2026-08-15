@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <div :class="{'open': open}" class="min-h-lh relative">
+    <div :class="{'v-grid-active': open}" class="min-h-lh relative">
         <div
             v-if="!open"
             class="text-left min-h-lh text-nowrap absolute inset-0 overflow-hidden text-ellipsis"

@@ -25,6 +25,7 @@ export class Stories extends OpenAPIRoute {
                     WHERE TS.[StoryID] = S.[ID]
                 ) AS [tagsJson]
             FROM [Story] S
+            WHERE S.[isActive] = 1
         `).all<any>();
 
         const results: StoryViewModel[] =  query.results.map(m => ({

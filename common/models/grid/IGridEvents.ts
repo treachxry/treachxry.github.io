@@ -1,7 +1,7 @@
 export interface IGridEvents<TModel extends object> {
-    create?(model: TModel): void
-    update?(model: TModel): void
-    remove?(model: TModel): void
-    cancel?(model: TModel): void
-    change?(model: TModel): void
+    create?(model: TModel): Promise<void>
+    update?(models: TModel[]): Promise<void>
+    remove?(model: TModel): Promise<void>
+    cancel?(model: TModel): Promise<void>
+    change?(model: TModel): Promise<void>
 }

@@ -34,6 +34,10 @@
 
 <template>
     <admin-subview>
-        <grid-table :config="config" :events="events" v-model="models"/>
+        <grid-table
+            :config="config"
+            :data="models"
+            :events="events"
+        />
     </admin-subview>
 </template>

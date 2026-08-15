@@ -23,13 +23,24 @@
     });
 
     async function readLore(): Promise<LoreDbModel[]> {
-        const {data} = await api.GET('/api/admin/lore/read-all', {credentials: 'include'});
+        const {data} = await api.GET('/api/admin/lore/read', {credentials: 'include'});
 
         return data as LoreDbModel[];
     }
 
-    async function createOrUpdateLore(model: LoreDbModel): Promise<void> {
-        const {data, response, error} = await api.POST('/api/admin/lore/create-or-update', {credentials: 'include', body: model});
+    async function createLore(model: LoreDbModel): Promise<void> {
+        model.iconUrl ??= null;
+        model.isActive ??= false;
+
+        const {response} = await api.POST('/api/admin/lore/create', {credentials: 'include', body: model});
+
+        if(response.ok) {
+            models.value = await readLore();
+        }
+    }
+
+    async function updateLore(updated: LoreDbModel[]) {
+        const {response} = await api.POST('/api/admin/lore/update', {credentials: 'include', body: updated});
 
         if(response.ok) {
             models.value = await readLore();
@@ -37,7 +48,7 @@
     }
 
     async function deleteLore(model: LoreDbModel): Promise<void> {
-        const {data, response, error} = await api.POST('/api/admin/lore/delete', {credentials: 'include', body: model});
+        const {response} = await api.POST('/api/admin/lore/delete', {credentials: 'include', body: model});
 
         if(response.ok) {
             models.value = await readLore();
@@ -45,14 +56,19 @@
     }
 
     const events: IGridEvents<LoreDbModel> = {
-        create: createOrUpdateLore,
-        update: createOrUpdateLore,
+        create: createLore,
+        update: updateLore,
         remove: deleteLore
     };
 </script>
 
 <template>
     <admin-subview>
-        <grid-table :config="grid" :events="events" :components="[CellTextbox, CellBoolean]" v-model="models"/>
+        <grid-table
+            :config="grid"
+            :data="models"
+            :events="events"
+            :components="[CellTextbox, CellBoolean]"
+        />
     </admin-subview>
 </template>

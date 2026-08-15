@@ -20,7 +20,7 @@ export class ReadLore extends OpenAPIRoute {
     }
 }
 
-export class UpdateLore extends OpenAPIRoute {
+export class CreateLore extends OpenAPIRoute {
     schema = {
         request: {
             body: contentJson(z.object({
@@ -28,7 +28,7 @@ export class UpdateLore extends OpenAPIRoute {
                 key: z.string().min(1).max(100),
                 name: z.string().min(1).max(100),
                 type: z.string().min(1).max(100),
-                iconUrl: z.string().max(200).optional(),
+                iconUrl: z.string().max(200).nullable(),
                 content: z.string().max(50000),
                 isActive: z.boolean()
             }))
@@ -38,27 +38,48 @@ export class UpdateLore extends OpenAPIRoute {
     async handle(c: AppContext) {
         const {body} = await this.getValidatedData<typeof this.schema>();
 
-        if(body.id === 0) {
-            const id = await c.env.profile.prepare(`
-                INSERT INTO [Lore] ([key], [name], [type], [iconUrl], [content], [isActive])
-                VALUES (?1, ?2, ?3, ?4, ?5, ?6)
-            `)
-                .bind(body.key, body.name, body.type, body.iconUrl, body.content, body.isActive)
-                .first<number>();
+        const id = await c.env.profile.prepare(`
+            INSERT INTO [Lore] ([key], [name], [type], [iconUrl], [content], [isActive])
+            VALUES (?1, ?2, ?3, ?4, ?5, ?6)
+        `)
+            .bind(body.key, body.name, body.type, body.iconUrl, body.content, body.isActive)
+            .first<number>();
 
-            body.id = id ?? 0;
-        }
-        else {
-            await c.env.profile.prepare(`
-                UPDATE [Lore]
-                SET [key] = ?2, [name] = ?3, [type] = ?4, [iconUrl] = ?5, [content] = ?6, [isActive] = ?7
-                WHERE [id] = ?1
-            `)
-                .bind(body.id, body.key, body.name, body.type, body.iconUrl, body.content, body.isActive)
-                .run();
-        }
+        body.id = id ?? 0;
 
-        return c.json({id: body.id});
+        return c.json({});
+    }
+}
+
+export class UpdateLore extends OpenAPIRoute {
+    schema = {
+        request: {
+            body: contentJson(z.array(z.object({
+                id: z.number(),
+                key: z.string().min(1).max(100),
+                name: z.string().min(1).max(100),
+                type: z.string().min(1).max(100),
+                iconUrl: z.string().max(200).nullable(),
+                content: z.string().max(50000),
+                isActive: z.boolean()
+            })))
+        }
+    }
+
+    async handle(c: AppContext) {
+        const {body} = await this.getValidatedData<typeof this.schema>();
+
+        const statement = c.env.profile.prepare(`
+            UPDATE [Lore]
+            SET [key] = ?2, [name] = ?3, [type] = ?4, [iconUrl] = ?5, [content] = ?6, [isActive] = ?7
+            WHERE [id] = ?1
+        `)
+
+        await c.env.profile.batch(body.map(m => {
+            return statement.bind(m.id, m.key, m.name, m.type, m.iconUrl, m.content, m.isActive)
+        }));
+
+        return c.json({});
     }
 }
 
